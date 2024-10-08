@@ -17,6 +17,9 @@
                     colors: {
                         'kuning': '#e0ba3d'
                     },
+                    backgroundImage: {
+                        'malinKundang' : "url('https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/01/2023/07/04/malin-kundang-3165423353.png')"
+                    },
                 }
             }
         }
@@ -25,34 +28,26 @@
 
 <body>
     <nav class="flex py-5 bg-slate-400 justify-around">
-        <ul class="flex bg-black list-none">
-            <li><a href=""><img src="assets/WIIF_LOGO-removebg-preview.png" class="sm:w-24" alt="logo"></a></li>
-            <li>Home</li>
-        </ul>
+        <a href=""><img src="assets/WIIF_LOGO-removebg-preview.png" class="sm:w-24" alt="logo"></a>
     </nav>
 
     <section class="p-3 h-svh">
-        <h1 class="text-4xl font-bold">What If? Indonesian Folks</h1>
+        <!-- <h1 class="text-4xl font-bold">What If? Indonesian Folks</h1> -->
         <div class="flex justify-evenly mt-2 flex-wrap">
-            <div class="mb-5">
-                <img src="https://down-id.img.susercontent.com/file/c1badd648d36dd40e21679f5f67ebaff"
-                    class="rounded-t-lg w-56" alt="">
-                <div class="w-56 shadow-md p-5">
-                    <h2 class="text-center text-lg font-bold">Malin Kundang</h2>
-                    <p class="mb-2 text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam
-                        perspiciatis commodi voluptas
-                        impedit ducimus.</p>
-                    <a href="malin_kundang.html"
-                        class="block text-center px-5 py-3  bg-blue-500 rounded-lg hover:bg-blue-400 transition-colors duration-75">Go
-                        To Story</a>
+            <a href="malin_kundang.html" class="group ">
+                <div class="mb-5 w-[230px] h-[230px]  shadow-md p-5 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200">
+                        <h2 class="text-center text-lg font-bold group-hover:text-white">Malin Kundang</h2>
+                        <p class="mb-2 text-sm hidden group-hover:block text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam
+                            perspiciatis commodi voluptas
+                            impedit ducimus.</p>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <section>
+    <footer>
 
-    </section>
+    </footer>
 </body>
 
 </html>
