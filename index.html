@@ -1,14 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gayatama</title>
-    <link rel="stylesheet" href="design.css">
+    <title>WIIF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppin: ['Poppins']
+                    },
+                    colors: {
+                        'kuning': '#e0ba3d'
+                    },
+                }
+            }
+        }
+    </script>
 </head>
+
 <body>
-    <h1 class="title" >Hello world</h1>
-    <h1 class="lomba">gayatama</h1>
-    <h2>harit</h2>
+    <nav class="flex py-5 bg-slate-400 justify-around">
+        <ul class="flex bg-black list-none">
+            <li><a href=""><img src="assets/WIIF_LOGO-removebg-preview.png" class="sm:w-24" alt="logo"></a></li>
+            <li>Home</li>
+        </ul>
+    </nav>
+
+    <section class="p-3 h-svh">
+        <h1 class="text-4xl font-bold">What If? Indonesian Folks</h1>
+        <div class="flex justify-evenly mt-2 flex-wrap">
+            <div class="mb-5">
+                <img src="https://down-id.img.susercontent.com/file/c1badd648d36dd40e21679f5f67ebaff"
+                    class="rounded-t-lg w-56" alt="">
+                <div class="w-56 shadow-md p-5">
+                    <h2 class="text-center text-lg font-bold">Malin Kundang</h2>
+                    <p class="mb-2 text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam
+                        perspiciatis commodi voluptas
+                        impedit ducimus.</p>
+                    <a href="malin_kundang.html"
+                        class="block text-center px-5 py-3  bg-blue-500 rounded-lg hover:bg-blue-400 transition-colors duration-75">Go
+                        To Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+
+    </section>
 </body>
+
 </html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          spacing: {
+            13: '3.25rem'
+          },
+          fontFamily: {
+            poppin: ['Poppins']
+          },
+          animation: {
+            'spin-slow': 'spin 3s linear infinite',
+            'goyang': 'dance 2s ease-in-out infinite'
+          },
+          keyframes: {
+            dance: {
+              '0% , 100%': {
+                transform: 'rotate(-3deg)'
+              },
+              '50%': {
+                transform: 'rotate(3deg)'
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
