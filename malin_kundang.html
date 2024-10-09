@@ -40,7 +40,8 @@
   <div id="story">
     <img src="assets/covermalin.webp" alt="" class="w-64 block mx-auto mb-5">
     <p id="story-text" class="text-center border rounded-lg p-5 w-[80%] mx-auto">
-      Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
+      Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai
+      besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
     </p>
     <div class="mx-auto w-max mt-6">
       <button id="choiceA" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">A: Sail through the storm</button>
@@ -56,51 +57,93 @@
     const choiceA = document.getElementById("choiceA");
     const choiceB = document.getElementById("choiceB");
 
-    // Initial Story Step
-    function startStory(choice) {
-      if (choice === 'A') {
-        // User chose option A (Sail through the storm)
-        storyText.textContent =
-          "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
-        
-        choiceA.textContent = "A: Fight the pirates";
-        choiceB.textContent = "B: Hide below deck";
+    choiceA.addEventListener("click", function () {
+      storyText.textContent =
+        "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
 
-        // Attach next choices
-        choiceA.onclick = function () {
-          nextStep('fight');
-        };
-        choiceB.onclick = function () {
-          nextStep('hide');
-        };
-
-      } else if (choice === 'B') {
-        // User chose option B (Turn back to the shore)
-        storyText.textContent =
-          "Malin Kundang's father returned home and postponed his journey to the distant land. Eventually, he set sail a year later under better weather.";
-        endStory();
-      }
-    }
-
-    // Next Step Based on Previous Choices
-    function nextStep(choice) {
-      if (choice === 'fight') {
-        // User chose to fight pirates
+      choiceA.textContent = "A: Fight the pirates";
+      choiceB.textContent = "B: Hide below deck";
+      
+      choiceA.addEventListener("click", function () {
         storyText.textContent =
           "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.";
         endStory();
-      } else if (choice === 'hide') {
-        // User chose to hide
-        storyText.textContent = "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
-        endStory();
-      }
-    }
+      });
+      choiceB.addEventListener("click", function () {
+        storyText.textContent =
+          "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
+        choiceA.textContent = "A: Fight the pirates";
+        choiceB.textContent = "B: halo";
+      });
 
-    // Function to end the story and provide options to restart or find more stories
+
+    });
+    choiceB.addEventListener("click", function () {
+      storyText.textContent =
+        "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
+
+      choiceA.textContent = "A: Fight the pirates";
+      choiceB.textContent = "B: Hide below deck";
+    });
+
+
+
+    // function startStory(choice) {
+    //   if (choice === 'A') {
+    //     // User chose option A (Sail through the storm)
+    //     storyText.textContent =
+    //       "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
+
+    //     choiceA.textContent = "A: Fight the pirates";
+    //     choiceB.textContent = "B: Hide below deck";
+
+    //     // Attach next choices
+    //     choiceA.onclick = function () {
+    //       nextStep('fight');
+    //     };
+    //     choiceB.onclick = function () {
+    //       console.log("halo");
+    //       nextStep('hide');
+    //     };
+
+    //   } else if (choice === 'B') {
+    //     // User chose option B (Turn back to the shore)
+    //     storyText.textContent =
+    //       "Malin Kundang's father returned home and postponed his journey to the distant land. Eventually, he set sail a year later under better weather.";
+    //     endStory();
+    //   }
+    // }
+
+    // // Next Step Based on Previous Choices
+    // function nextStep(choice) {
+    //   if (choice === 'fight') {
+    //     // User chose to fight pirates
+    //     storyText.textContent =
+    //       "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.";
+    //     endStory();
+    //   } else if (choice === 'hide') {
+    //     // User chose to hide
+    //     storyText.textContent =
+    //       "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
+    //     choiceA.textContent = "A: Fight the pirates";
+    //     choiceB.textContent = "B: halo";
+
+    //     // Attach next choices
+    //     choiceA.onclick = function () {
+    //       nextStep('fight');
+    //     };
+    //     choiceB.onclick = function () {
+    //       // nextStep('hide');
+    //       console.log("halo");
+    //     };
+    //   }
+    // }
+
+    // // Function to end the story and provide options to restart or find more stories
     function endStory() {
       choiceA.textContent = "Back to beginning";
       choiceB.textContent = "Find more story";
-      
+
       choiceA.onclick = function () {
         location.reload(); // Reload the page to start again
       };
@@ -110,14 +153,6 @@
         choiceB.style.display = "none";
       };
     }
-
-    // Attach event listeners for the first decision
-    choiceA.addEventListener("click", function () {
-      startStory('A');
-    });
-    choiceB.addEventListener("click", function () {
-      startStory('B');
-    });
   </script>
 
 </body>
