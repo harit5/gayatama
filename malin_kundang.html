@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Story with If-Else</title>
+  <title>Malin Kundang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            mon: ['Montserrat']
+          },
+        }
+      }
     }
-    .story-section {
-      margin: 20px;
-    }
-    .choices {
-      margin-top: 20px;
-    }
-    .choice-button {
-      padding: 10px 20px;
-      margin: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    .hidden {
-      display: none;
-    }
-  </style>
+  </script>
 </head>
 <body>
 
-  <div id="story" class="story-section">
-    <span class="text-center block font-bold mb-5">Malin Kundang (West Sumatra)</span>
-    <p id="story-text" class="text-center border rounded-lg p-5">On the coast of Sumatra lived a boy named Malin Kundang with his parents. One day, his father left to seek his fortune across the ocean. Before boarding the ship, the sky suddenly darkened, signaling a coming storm, which made Malin's father hesitant to board.</span></p>
-    <div class="choices mx-auto w-max">
-      <button id="choiceA" class="choice-button">A: Sail through the storm</button>
-      <button id="choiceB" class="choice-button">B: Turn back to the shore</button>
+  <nav>
+    
+  </nav>
+
+  <div id="story">
+    <h1 class="text-center font-bold text-xl mb-5 mt-5">Malin Kundang</h1>
+    <img src="assets/covermalin.webp" alt="" class="w-64 block mx-auto mb-5">
+    <p id="story-text" class="text-center border rounded-lg p-5 w-[80%] mx-auto">Before Malin Kundang's father boarded the ship, the sky suddenly darkened, signaling that a big storm was coming. This made Malin Kundang's father hesitate to board the ship.gig</p>
+    <div class="mx-auto w-max mt-6">
+      <button id="choiceA" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">A: Sail through the storm</button>
+      <button id="choiceB" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">B: Turn back to the shore</button>
     </div>
   </div>
 
@@ -51,26 +51,36 @@
     function startStory(choice) {
       if (choice === 'A') {
         // User chose option A (Sail through the storm)
-        storyText.textContent = "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm.When Malin grew up, he felt pity for his mother, who was old but still working. He expressed his desire to go abroad and earn a living. Although his mother initially disagreed, she finally gave him permission. In the middle of his journey, Malin Kundang’s ship was suddenly attacked by pirates. Malin Kundang thought hard about whether to fight the pirates or hide.";
-        
+        storyText.textContent =
+          "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm.When Malin grew up, he felt pity for his mother, who was old but still working. He expressed his desire to go abroad and earn a living. Although his mother initially disagreed, she finally gave him permission. In the middle of his journey, Malin Kundang’s ship was suddenly attacked by pirates. Malin Kundang thought hard about whether to fight the pirates or hide.";
+
         // Update buttons for the next choices
         choiceA.textContent = "A: Fight the pirates";
         choiceB.textContent = "B: Hide below deck";
 
         // Set new logic for the next decision point
-        choiceA.onclick = function() { nextStep('fight'); };
-        choiceB.onclick = function() { nextStep('hide'); };
-        
+        choiceA.onclick = function () {
+          nextStep('fight');
+        };
+        choiceB.onclick = function () {
+          nextStep('hide');
+        };
+
       } else if (choice === 'B') {
         // User chose option B (Turn back to the shore)
-        storyText.textContent = "Malin Kundang's father returned home and postponed his journey to the distant land until the weather improved. Malin Kundang's father went to the distant land for a year and then returned happily.";
-        
+        storyText.textContent =
+          "Malin Kundang's father returned home and postponed his journey to the distant land until the weather improved. Malin Kundang's father went to the distant land for a year and then returned happily.";
+
         // Update buttons for the next choices
         endStory();
 
         // Set new logic for the next decision point
-        choiceA.onclick = function() { nextStep('stay'); };
-        choiceB.onclick = function() { nextStep('sail'); };
+        choiceA.onclick = function () {
+          nextStep('stay');
+        };
+        choiceB.onclick = function () {
+          nextStep('sail');
+        };
       }
     }
 
@@ -78,25 +88,32 @@
     function nextStep(choice) {
       if (choice === 'fight') {
         // User chose to fight pirates
-        storyText.textContent = "While fighting the pirates, Malin Kundang was captured and imprisoned by them. Malin Kundang thought hard about how to escape from the pirates, but as he tried to flee, he was caught by the pirates' guards and eventually brought to the pirate leader. When he met the pirate leader, the guards requested that Malin Kundang be thrown into the ocean, and the pirate leader agreed. In the end, Malin Kundang died after being thrown into the middle of the sea by the pirates.";
+        storyText.textContent =
+          "While fighting the pirates, Malin Kundang was captured and imprisoned by them. Malin Kundang thought hard about how to escape from the pirates, but as he tried to flee, he was caught by the pirates' guards and eventually brought to the pirate leader. When he met the pirate leader, the guards requested that Malin Kundang be thrown into the ocean, and the pirate leader agreed. In the end, Malin Kundang died after being thrown into the middle of the sea by the pirates.";
         endStory();
       } else if (choice === 'hide') {
         // User chose to hide
-        storyText.textContent = "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
+        storyText.textContent =
+          "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
         endStory();
       } else if (choice === 'stay') {
         // User chose to stay on land
-        storyText.textContent = "You stay on land and live a peaceful life, but you always wonder what might have been.";
+        storyText.textContent =
+          "You stay on land and live a peaceful life, but you always wonder what might have been.";
         endStory();
       } else if (choice === 'sail') {
         // User chose to sail again
-        storyText.textContent = "You set sail again and take a different route. This time, you avoid the storm and safely reach your destination.";
+        storyText.textContent =
+          "You set sail again and take a different route. This time, you avoid the storm and safely reach your destination.";
         endStory();
       } else if (choice === 'hide') {
-        choiceA.onclick = function() { nextStep('fight'); };
-        storyText.textContent = "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
+        choiceA.onclick = function () {
+          nextStep('fight');
+        };
+        storyText.textContent =
+          "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
         endStory();
-        
+
       }
     }
 
@@ -104,14 +121,23 @@
     function endStory() {
       choiceA.textContent = "Back to beginning";
       choiceB.textContent = "Find more story";
-      choiceA.onclick = function() { nextStep('stay'); };
-      choiceB.onclick = function() { nextStep('sail'); };
+      choiceA.onclick = function () {
+        nextStep('stay');
+      };
+      choiceB.onclick = function () {
+        nextStep('sail');
+      };
     }
 
     // Attach event listeners for the first decision
-    choiceA.addEventListener("click", function() { startStory('A'); });
-    choiceB.addEventListener("click", function() { startStory('B'); });
+    choiceA.addEventListener("click", function () {
+      startStory('A');
+    });
+    choiceB.addEventListener("click", function () {
+      startStory('B');
+    });
   </script>
 
 </body>
+
 </html>

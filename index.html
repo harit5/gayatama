@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIIF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,13 +18,22 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        poppin: ['Poppins']
+                        berk: ["Berkshire Swash"],
+                        mon: ["Montserrat"]
                     },
                     colors: {
                         'kuning': '#e0ba3d'
                     },
                     backgroundImage: {
-                        'malinKundang': "url('assets/covermalin.jpeg')"
+                        'malinKundang': "url('assets/covermalin.webp')",
+                        'bwg' : "url('assets/coverbwg.jpeg')",
+                        'timun': "url('assets/timun.webp')",
+                        'roro': "url('assets/roro.webp')",
+                        'sang': "url('assets/sang.jpg')",
+                        'toba': "url('assets/toba.webp')",
+                        'keong': "url('assets/keong.webp')",
+                        'batumenangis': "url('assets/batumenangis.webp')",
+                        'lut': "url('assets/lut.webp')",
                     },
                 }
             }
@@ -26,93 +41,126 @@
     </script>
 </head>
 
-<body>
-    <nav class="flex py-5 justify-around h-20 items-center ">
-        <a href="index.html" class=""><img src="assets/WIIF_LOGO-removebg-preview.png" class="w-20" alt="logo"></a>
+<body class="font-mon">
+    <nav class="flex py-5 justify-around h-20 items-center bg-[#5c3c23]">
+        <a href="index.html" class=""><img src="assets/image.png" class="w-20" alt="logo"></a>
     </nav>
 
-    <section class="p-10">
-        <h1 class="text-center font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl">What If? Indonesian Folklore</h1>
-        <p class="text-center text-sm sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint magnam voluptas est?</p>
+    <section class="p-10 bg-[#FFFDE7]">
+        <h1 class="text-center font-berk font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl ">What If? Indonesian
+            Folklore</h1>
+        <p class="text-center font-mon text-sm sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint magnam
+            voluptas est?</p>
     </section>
 
-    <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] ">
-        <h1 class="text-lg font-bold text-center sm:text-xl lg:text-2xl xl:text-3xl">Our Story</h1>
-        <div class="flex mt-5 flex-wrap m-auto justify-around sm:w-[70%] lg:w-[90%] ">
+    <section class="p-3 h-svh bg-[url('assets/bgbatik.jpeg')] ">
+        <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Our Story</h1>
+        <div class="flex mt-5 flex-wrap m-auto justify-evenly sm:w-[70%] lg:w-[90%] ">
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-56 h-28 sm:w-80 sm:h-40 lg:w-[416px] lg:h-52 xl:h-64 xl:w-[512px] shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-bottom">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white">Malin Kundang</h2>
-                    <p class="overflow-hidden mt-1 text-[7px] sm:text-[12px] lg:text-sm xl:text-lg hidden group-hover:block text-white">Lorem ipsum, dolor sit amet consectetur
-                        adipisicing elit. Animi, totam
-                        perspiciatis commodi voluptas</p>
+                    class="w-56 h-28 sm:w-80 sm:h-40 lg:w-[416px] lg:h-52 xl:h-64 xl:w-[512px] shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-bottom">
+                    <h2 class="text-white bg-[#d39747] rounded-lg text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white">Malin
+                        Kundang</h2>
+                    <p
+                        class="overflow-hidden mt-1 text-[7px] sm:text-[12px] lg:text-sm xl:text-lg hidden group-hover:block text-white">
+                        Malin Kundang is a folk tale from West Sumatra about a poor young man who goes away to seek fortune and becomes rich. When he returns, he is ashamed to recognize his poor mother. In anger, his mother curses him, and Malin Kundang turns into stone. The story teaches the importance of respecting parents.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-timun group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                    Timun Mas</h2>
+                    <p
+                    class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                    voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-bwg group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Bawang Merah Bawang Putih</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                        voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-roro group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Roro Jonggrang</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                        voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-sang group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Sangkuriang</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                        voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-toba group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Danau Toba</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                        voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-keong group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Keong Mas</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                        voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-batumenangis group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Batu Menangis</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi
+                        voluptas impedit ducimus.</p>
                 </div>
             </a>
             <a href="malin_kundang.html" class="group mb-5">
                 <div
-                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-malinKundang group-hover:bg-none group-hover:bg-[#00b19a] transition bg-cover duration-200 bg-center object-cover">
-                    <h2 class="text-sm sm:text-base lg:text-lg xl:text-xl font-bold group-hover:text-white leading-4 ">Malin Kundang</h2>
-                    <p class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, totam perspiciatis commodi voluptas impedit ducimus.</p>
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md p-2 sm:p-3 bg-lut group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-200 bg-center object-cover">
+                    <h2 class="text-white rounded-lg bg-[#d39747] text-center text-[10px] sm:text-base lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Lutung Kasarung</h2>
+                    <p
+                        class="mt-1 text-[7px] sm:text-[12px] lg:text-[13px] xl:text-lg hidden group-hover:block text-white ">
+                        Kisah tentang seorang putri yang menolak cinta pangeran dan dijadikan batu. Air mata putri itu kemudian membentuk danau, menjadi simbol kesedihan dan penyesalan..</p>
                 </div>
             </a>
-           
         </div>
     </section>
 
     <footer class="p-5 flex justify-between bg-[#d39747]">
         <img src="assets/WIIF_LOGO-removebg-preview.png" alt="" class="w-20">
-        <ul class="flex w-52 justify-around text-lg font-semibold items-center">
-            <li><a href="about.html">About</a></li>
-            <li><a href="help.html">Help</a></li>
+        <ul class="flex w-52 justify-around text-lg items-center">
+            <li class="hover:text-slate-600 transition-colors"><a href="about.html">About</a></li>
+            <li class="hover:text-slate-600 transition-colors"><a href="help.html">Help</a></li>
         </ul>
     </footer>
 </body>
