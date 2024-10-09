@@ -82,8 +82,15 @@
         choiceB.textContent = "Malin hugs his mother tightly";
         currentStage = 4;
       } else if (currentStage === 4) {
-        storyText.textContent = "Malin pushes his mother away. She is heartbroken, and a curse falls upon him.";
+        storyText.textContent = "Malin pushed his mother away from him. In fact, he shoved her, insulted her, and refused to acknowledge that she was his mother. Malin's mother was so sad and angry. Therefore, she immediately raised her hands and prayed," + "Oh God, if he is truly my son, I curse him to become a stone." + "When cursed by his mother, Malin was startled and pondered deeply about what would happen next if he were cursed by his mother.";
+        choiceA.textContent = "Malin did not respond to his mother's curse.";
+        choiceB.textContent = "Malin apoligized to his mother";
+        currentStage = 5;
+      }else if (currentStage===5) {
+        storyText.textContent =
+          "Tidak berapa lama kemudian angin bergemuruh kencang dan badai dahsyat. Tubuh Malin Kundang pun perlahan kaku dan menjadi sebuah batu karang.";
         endStory();
+        
       }
     });
 
@@ -105,6 +112,11 @@
       } else if (currentStage === 4) {
         storyText.textContent = "Malin hugs his mother, and they are reunited.";
         endStory();
+      }else if (currentStage===5) {
+        storyText.textContent =
+          "Malin kundang lalu dimaafkan oleh ibunya dan akhirnya malin dan keluarganya hidup bahagia";
+        endStory();
+        
       }
     });
 
