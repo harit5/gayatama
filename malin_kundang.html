@@ -33,7 +33,7 @@
   <div id="story" class="story-section">
     <span class="text-center block font-bold mb-5">Malin Kundang (West Sumatra)</span>
     <p id="story-text" class="text-center border rounded-lg p-5">On the coast of Sumatra lived a boy named Malin Kundang with his parents. One day, his father left to seek his fortune across the ocean. Before boarding the ship, the sky suddenly darkened, signaling a coming storm, which made Malin's father hesitant to board.</span></p>
-    <div class="choices">
+    <div class="choices mx-auto w-max">
       <button id="choiceA" class="choice-button">A: Sail through the storm</button>
       <button id="choiceB" class="choice-button">B: Turn back to the shore</button>
     </div>
@@ -66,8 +66,7 @@
         storyText.textContent = "Malin Kundang's father returned home and postponed his journey to the distant land until the weather improved. Malin Kundang's father went to the distant land for a year and then returned happily.";
         
         // Update buttons for the next choices
-        choiceA.textContent = "A: Stay on land";
-        choiceB.textContent = "B: Set sail again";
+        endStory();
 
         // Set new logic for the next decision point
         choiceA.onclick = function() { nextStep('stay'); };
@@ -79,7 +78,7 @@
     function nextStep(choice) {
       if (choice === 'fight') {
         // User chose to fight pirates
-        storyText.textContent = "You bravely fight the pirates and emerge victorious. You become a hero!";
+        storyText.textContent = "While fighting the pirates, Malin Kundang was captured and imprisoned by them. Malin Kundang thought hard about how to escape from the pirates, but as he tried to flee, he was caught by the pirates' guards and eventually brought to the pirate leader. When he met the pirate leader, the guards requested that Malin Kundang be thrown into the ocean, and the pirate leader agreed. In the end, Malin Kundang died after being thrown into the middle of the sea by the pirates.";
         endStory();
       } else if (choice === 'hide') {
         // User chose to hide
@@ -93,13 +92,20 @@
         // User chose to sail again
         storyText.textContent = "You set sail again and take a different route. This time, you avoid the storm and safely reach your destination.";
         endStory();
+      } else if (choice === 'hide') {
+        choiceA.onclick = function() { nextStep('fight'); };
+        storyText.textContent = "You hide below deck. The pirates raid the ship, but you survive. Eventually, they leave, and you continue your journey.";
+        endStory();
+        
       }
     }
 
     // Function to end the story by hiding the choice buttons
     function endStory() {
-      choiceA.style.display = "none";
-      choiceB.style.display = "none";
+      choiceA.textContent = "Back to beginning";
+      choiceB.textContent = "Find more story";
+      choiceA.onclick = function() { nextStep('stay'); };
+      choiceB.onclick = function() { nextStep('sail'); };
     }
 
     // Attach event listeners for the first decision
