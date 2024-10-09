@@ -38,14 +38,10 @@
 
   <div id="story">
     <img src="assets/covermalin.webp" alt="" class="w-64 block mx-auto mb-5">
-<<<<<<< HEAD
-    <p id="story-text" class="text-center border rounded-lg p-5 w-[80%] mx-auto">Before Malin Kundang's father boarded the ship, the sky suddenly darkened, signaling that a big storm was coming. This made Malin Kundang's father hesitate to board the ship.gig</p>
-=======
     <p id="story-text" class="text-center border rounded-lg p-5 w-[80%] mx-auto">
       Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai
       besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
     </p>
->>>>>>> 06e20370f4667385ec1ed81d97cfafdf8804a1e5
     <div class="mx-auto w-max mt-6">
       <button id="choiceA" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">Sail through the storm</button>
       <button id="choiceB" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">Turn back to the shore</button>
@@ -55,8 +51,8 @@
   <footer class="p-5 flex justify-between bg-[#d39747] mt-5">
     <img src="assets/WIIF_LOGO-removebg-preview.png" alt="" class="w-20">
     <ul class="flex w-52 justify-around text-lg items-center">
-        <li class="hover:text-slate-600 transition-colors"><a href="about.html">About</a></li>
-        <li class="hover:text-slate-600 transition-colors"><a href="help.html">Help</a></li>
+      <li class="hover:text-slate-600 transition-colors"><a href="about.html">About</a></li>
+      <li class="hover:text-slate-600 transition-colors"><a href="help.html">Help</a></li>
     </ul>
   </footer>
 
@@ -71,7 +67,7 @@
 
       choiceA.textContent = "Fight the pirates";
       choiceB.textContent = "Hide below deck";
-      
+
       choiceA.addEventListener("click", function () {
         storyText.textContent =
           "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.";
@@ -83,25 +79,24 @@
         choiceA.textContent = "accept the job";
         choiceB.textContent = "reject the job";
 
-            choiceA.addEventListener("click", function () {
-              storyText.textContent =
-              "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
-              choiceA.textContent = "Malin push his mother";
-              choiceB.textContent = "Malin hugged his mother tightly";
-              choiceA.addEventListener("click", function () {
-                storyText.textContent =
-              "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
-              choiceA.textContent = "Malin push his mother";
-              choiceB.textContent = "Malin hugged his mother tightly";
-          });
-              choiceB.addEventListener("click", function () {
-          });
-          });
-          choiceB.addEventListener("click", function () {
+        choiceA.addEventListener("click", function () {
+          storyText.textContent =
+            "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
+          choiceA.textContent = "Malin push his mother";
+          choiceB.textContent = "Malin hugged his mother tightly";
+          choiceA.addEventListener("click", function () {
             storyText.textContent =
-              "Then, Malin finally returned to his village and met his mother. He explained that the reason he came back was because he was worried that he might encounter pirates again on the island where he had previously stopped.";
-              endStory();
+              "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
+            choiceA.textContent = "Malin push his mother";
+            choiceB.textContent = "Malin hugged his mother tightly";
           });
+          choiceB.addEventListener("click", function () {});
+        });
+        choiceB.addEventListener("click", function () {
+          storyText.textContent =
+            "Then, Malin finally returned to his village and met his mother. He explained that the reason he came back was because he was worried that he might encounter pirates again on the island where he had previously stopped.";
+          endStory();
+        });
       });
 
 
