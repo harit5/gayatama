@@ -48,11 +48,11 @@
     </div>
   </div>
 
-  <footer class="p-5 flex justify-between bg-[#d39747] mt-5">
-    <img src="assets/WIIF_LOGO-removebg-preview.png" alt="" class="w-20">
+  <footer class="p-2 sm:p-3 flex justify-between bg-[#d39747] mt-6">
+    <img src="assets/WIIF_LOGO-removebg-preview.png" alt="" class="w-14 sm:w-20">
     <ul class="flex w-52 justify-around text-lg items-center">
-      <li class="hover:text-slate-600 transition-colors"><a href="about.html">About</a></li>
-      <li class="hover:text-slate-600 transition-colors"><a href="help.html">Help</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm sm:text-lg"><a href="about.html">About</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm sm:text-lg"><a href="help.html">Help</a></li>
     </ul>
   </footer>
 
@@ -61,65 +61,74 @@
     const choiceA = document.getElementById("choiceA");
     const choiceB = document.getElementById("choiceB");
 
+    let currentStage = 1;
+
+    // Event listener for choice A
     choiceA.addEventListener("click", function () {
-      storyText.textContent =
-        "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
-
-      choiceA.textContent = "Fight the pirates";
-      choiceB.textContent = "Hide below deck";
-
-      choiceA.addEventListener("click", function () {
+      if (currentStage === 1) {
+        storyText.textContent =
+          "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
+        choiceA.textContent = "Fight the pirates";
+        choiceB.textContent = "Hide below deck";
+        currentStage = 2;
+      } else if (currentStage === 2) {
         storyText.textContent =
           "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.";
         endStory();
-      });
-      choiceB.addEventListener("click", function () {
+      } else if (currentStage === 3) {
+        storyText.textContent =
+          "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
+        choiceA.textContent = "Malin pushes his mother";
+        choiceB.textContent = "Malin hugs his mother tightly";
+        currentStage = 4;
+      } else if (currentStage === 4) {
+        storyText.textContent = "Malin pushed his mother away from him. In fact, he shoved her, insulted her, and refused to acknowledge that she was his mother. Malin's mother was so sad and angry. Therefore, she immediately raised her hands and prayed," + "Oh God, if he is truly my son, I curse him to become a stone." + "When cursed by his mother, Malin was startled and pondered deeply about what would happen next if he were cursed by his mother.";
+        choiceA.textContent = "Malin did not respond to his mother's curse.";
+        choiceB.textContent = "Malin apoligized to his mother";
+        currentStage = 5;
+      }else if (currentStage===5) {
+        storyText.textContent =
+          "Tidak berapa lama kemudian angin bergemuruh kencang dan badai dahsyat. Tubuh Malin Kundang pun perlahan kaku dan menjadi sebuah batu karang.";
+        endStory();
+        
+      }
+    });
+
+    // Event listener for choice B
+    choiceB.addEventListener("click", function () {
+      if (currentStage === 1) {
+        storyText.textContent =
+          "Malin Kundang's father returned home and postponed his departure to a foreign land until the weather improved. Malin Kundang's father went to a foreign land a year ago and returned happily.";
+        endStory();
+      } else if (currentStage === 2) {
         storyText.textContent =
           "Malin Kundang was stranded in the middle of the sea, until eventually, the ship he was on was washed ashore on a beach. With the remaining strength he had, Malin Kundang walked towards the nearest village from the beach.While on that foreign island, Malin was offered a job by the local residents there, but Malin thought about returning to his mother because he was worried about encountering pirates on the island.";
-        choiceA.textContent = "accept the job";
-        choiceB.textContent = "reject the job";
-
-        choiceA.addEventListener("click", function () {
-          storyText.textContent =
-            "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
-          choiceA.textContent = "Malin push his mother";
-          choiceB.textContent = "Malin hugged his mother tightly";
-          choiceA.addEventListener("click", function () {
-            storyText.textContent =
-              "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
-            choiceA.textContent = "Malin push his mother";
-            choiceB.textContent = "Malin hugged his mother tightly";
-          });
-          choiceB.addEventListener("click", function () {});
-        });
-        choiceB.addEventListener("click", function () {
-          storyText.textContent =
-            "Then, Malin finally returned to his village and met his mother. He explained that the reason he came back was because he was worried that he might encounter pirates again on the island where he had previously stopped.";
-          endStory();
-        });
-      });
-
-
-    });
-    choiceB.addEventListener("click", function () {
-      storyText.textContent =
-        "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
-
-      choiceA.textContent = "Fight the pirates";
-      choiceB.textContent = "Hide below deck";
+        choiceA.textContent = "Accept the job";
+        choiceB.textContent = "Reject the job";
+        currentStage = 3;
+      } else if (currentStage === 3) {
+        storyText.textContent = "Malin rejects the job and continues his journey.";
+        endStory();
+      } else if (currentStage === 4) {
+        storyText.textContent = "Malin hugged his mother tightly, and in the end, Malin and his family lived happily in their village.";
+        endStory();
+      }else if (currentStage===5) {
+        storyText.textContent =
+          "Malin kundang lalu dimaafkan oleh ibunya dan akhirnya malin dan keluarganya hidup bahagia";
+        endStory();
+        
+      }
     });
 
+    // End of story actions
     function endStory() {
       choiceA.textContent = "Back to beginning";
-      choiceB.textContent = "Find more story";
-
+      choiceB.textContent = "Back To Home";
       choiceA.onclick = function () {
-        location.reload(); // Reload the page to start again
+        location.reload(); 
       };
       choiceB.onclick = function () {
-        storyText.textContent = "More stories will be available soon!";
-        choiceA.style.display = "none";
-        choiceB.style.display = "none";
+        window.location.href = 'index.html';
       };
     }
   </script>
