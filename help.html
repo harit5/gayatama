@@ -1,36 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
     <title>WIIF</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    // that is animation class
-                    animation: {
-                        fade: 'fadeIn 5s ease-in-out',
+                    fontFamily: {
+                        berk: ["Berkshire Swash"],
+                        mon: ["Montserrat"]
                     },
-
-                    // that is actual animation
-                    keyframes: theme => ({
-                        fadeIn: {
-                            '0%': {
-                                backgroundColor: theme('colors.transparent')
-                            },
-                            '100%': {
-                                backgroundColor: theme('colors.red.300')
-                            },
-                        },
-                    }),
-                },
-            },
-
+                    colors: {
+                        'kuning': '#e0ba3d'
+                    },
+                    backgroundImage: {
+                        'malinKundang': "url('assets/covermalin.webp')",
+                        'bwg': "url('assets/coverbwg.jpeg')",
+                        'timun': "url('assets/timun.webp')",
+                        'roro': "url('assets/roro.webp')",
+                        'sang': "url('assets/sang.jpg')",
+                        'toba': "url('assets/toba.webp')",
+                        'keong': "url('assets/keong.webp')",
+                        'batumenangis': "url('assets/batumenangis.webp')",
+                        'lut': "url('assets/lut.webp')",
+                    },
+                }
+            }
         }
     </script>
 </head>
@@ -40,17 +48,17 @@
         <a href="index.html" class=""><img src="assets/logo.png" class="w-20" alt="logo"></a>
     </nav>
 
-    <section class="p-10 bg-[#FFFDE7]">
+    <main class="p-10 bg-[#FFFDE7] flex-1">
         <h1 class="text-center font-berk font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl ">What If? Indonesian
             Folklore</h1>
         <p class="text-center font-mon text-sm sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
             magnam
             voluptas est?</p>
-    </section>
+    </main>
 
-    <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
+    <!-- <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
         <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Help</h1>
-    </section>
+    </section> -->
 
     <footer class=" flex justify-between bg-[#d39747] ">
         <img src="assets/dark-logo.png" alt="" class="w-14 sm:w-20">

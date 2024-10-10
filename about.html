@@ -1,36 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
     <title>WIIF</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    // that is animation class
-                    animation: {
-                        fade: 'fadeIn 5s ease-in-out',
+                    fontFamily: {
+                        berk: ["Berkshire Swash"],
+                        mon: ["Montserrat"]
                     },
+                    colors: {
+                        'kuning': '#e0ba3d'
+                    },
+                    backgroundImage: {
 
-                    // that is actual animation
-                    keyframes: theme => ({
-                        fadeIn: {
-                            '0%': {
-                                backgroundColor: theme('colors.transparent')
-                            },
-                            '100%': {
-                                backgroundColor: theme('colors.red.300')
-                            },
-                        },
-                    }),
-                },
-            },
-
+                    },
+                }
+            }
         }
     </script>
 </head>
@@ -40,16 +40,64 @@
         <a href="index.html" class=""><img src="assets/logo.png" class="w-20" alt="logo"></a>
     </nav>
 
-    <section class="p-10 bg-[#FFFDE7]">
-        <h1 class="text-center font-berk font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl ">What If? Indonesian
-            Folklore</h1>
-        <p class="text-center font-mon text-sm sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-            magnam
-            voluptas est?</p>
-    </section>
+    <section class="p-10 bg-[#FFFDE7] flex-1">
+        <div class="flex flex-col lg:flex-row lg:items-center">
+            <img src="assets/dark-logo.png" class="w-56 h-56 mx-auto lg:mr-2" alt="logo_WIIF">
+            <div class="flex flex-col w-auto mx-auto">
+                <h1 class="mb-6 text-2xl lg:text-3xl font-berk font-semibold text-center lg:text-left">Lorem ipsum dolor
+                    sit.</h1>
+                <p class="mb-4 text-justify text-sm md:text-base">Welcome to <span class="font-bold">WIIF (What If?
+                        Indonesian Folklore)</span>, where ancient legends meet your choices, creating unique paths
+                    through Indonesia's most captivating stories!
+                    This project is an interactive web experience that brings together various folklore and legends from
+                    Indonesia. Inspired by the classic "choose your own adventure" style, WIIF lets <span
+                        class="font-bold">users shape the outcome of each story</span> by making key decisions along the
+                    way.</p>
+                <p class="mb-4 text-justify text-sm md:text-base">WIIF is developed for the <span
+                        class="font-bold">Gayatama Competition</span> by a team of three, passionate about showcasing
+                    the rich cultural heritage of Indonesia in an interactive and modern format. The goal of this
+                    project is to allow users to explore and interact with Indonesia's timeless folklore stories while
+                    <span class="font-bold">making decisions that affect the story’s</span> outcome.</p>
+            </div>
+        </div>
 
-    <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
-        <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Help</h1>
+        <div class="flex flex-col lg:flex-row lg:items-center mt-10">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                class="w-56 h-56 mx-auto lg:mr-2 mb-4 lg:hidden" alt="logo_WIIF">
+            <div class="flex flex-col w-auto mx-auto lg:mr-5">
+                <h1 class="mb-4 text-2xl lg:text-3xl font-berk font-semibold text-center lg:text-left">Hilzam Saiga</h1>
+                <p class="text-center lg:text-left text-sm md:text-base">Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Reiciendis aspernatur minima suscipit repellendus alias, minus, similique deserunt asperiores
+                    repellat tenetur qui eligendi debitis quos impedit.</p>
+            </div>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                class="w-56 h-56 mx-auto lg:mr-2 hidden lg:inline-block" alt="logo_WIIF">
+        </div>
+
+        <div class="flex flex-col lg:flex-row lg:items-center mt-10">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                class="w-56 h-56 mx-auto lg:mr-2 mb-4" alt="logo_WIIF">
+            <div class="flex flex-col w-auto mx-auto lg:ml-5">
+                <h1 class="mb-4 text-2xl lg:text-3xl font-berk font-semibold text-center lg:text-left">Farsyah</h1>
+                <p class="text-center lg:text-left text-sm md:text-base">Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Reiciendis aspernatur minima suscipit repellendus alias, minus, similique deserunt asperiores
+                    repellat tenetur qui eligendi debitis quos impedit.</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row lg:items-center mt-10">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                class="w-56 h-56 mx-auto lg:mr-2 mb-4 lg:hidden" alt="logo_WIIF">
+            <div class="flex flex-col w-auto mx-auto lg:mr-5">
+                <h1 class="mb-4 text-2xl lg:text-3xl font-berk font-semibold text-center lg:text-left">Vandaniya</h1>
+                <p class="text-center lg:text-left text-sm md:text-base">Lorem ipsum dolor sit, amet consectetur adipisicing
+                    elit. Reiciendis aspernatur minima suscipit repellendus alias, minus, similique deserunt asperiores
+                    repellat tenetur qui eligendi debitis quos impedit.</p>
+            </div>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                class="w-56 h-56 mx-auto lg:mr-2 hidden lg:inline-block" alt="logo_WIIF">
+        </div>
+
     </section>
 
     <footer class=" flex justify-between bg-[#d39747] ">
