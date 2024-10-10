@@ -32,12 +32,7 @@
       <a href="index.html" class=""><img src="assets/image.png" class="w-14" alt="logo"></a>
       <h1 class="text-white ml-3 w-3 sm:w-max">Malin Kundang</h1>
     </div>
-    <div class="grow flex w-fit">
-      <h1 class="text-white" id="stage">1 / 6</h1>
-    </div>
-    <div class="mr-5 w-fit">
-      <h1 class="text-white" id="stage">1 / 6</h1>
-    </div>
+    <h1 class="grow flex w-fit text-white mr-5" id="stage">1 / 6</h1>
   </nav>
 
   <main class="bg-[#FFFDE7] p-5 flex-1">
@@ -198,7 +193,7 @@
         choiceB.textContent = story[state].choices.B.text;
 
         // Update stage
-        stage.textContent = `${currentStage} / 5`;
+        stage.textContent = `${localStorage.getItem("selectedScene")} / 5`;
       } else if (endings[state]) {
         // Update story text and image for endings
         storyText.textContent = endings[state].text;
@@ -225,6 +220,8 @@
         const newChoiceA = document.getElementById("choiceA");
         const newChoiceB = document.getElementById("choiceB");
 
+        localStorage.setItem("selectedScene", 1)
+
         // Add new event listeners
         newChoiceA.addEventListener("click", () => {
           location.reload();
@@ -242,6 +239,7 @@
         const next = story[currentStage].choices.A.next;
         if (typeof next === 'number') {
           currentStage = next;
+          localStorage.setItem("selectedScene", currentStage);
           updateStory(next);
         } else {
           updateStory(next);
@@ -255,6 +253,7 @@
         const next = story[currentStage].choices.B.next;
         if (typeof next === 'number') {
           currentStage = next;
+          localStorage.setItem("selectedScene", currentStage);
           updateStory(next);
         } else {
           updateStory(next);
@@ -263,7 +262,8 @@
     });
 
     // Initialize the story
-    updateStory(currentStage);
+    console.log(localStorage.getItem("selectedScene"));
+    updateStory(localStorage.getItem("selectedScene"));
   </script>
 
 </body>
