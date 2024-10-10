@@ -13,9 +13,9 @@ Each decision results in a new direction for the story, leading to multiple poss
 This dynamic storytelling method allows for a fresh and immersive experience with every replay!
 
 ## 🔧 Technologies Used
-HTML5 for structuring the web pages.
-Tailwind CSS for responsive design and styling, ensuring a modern and sleek user interface.
-JavaScript for interactive story logic and branching pathways.
+* HTML5 for structuring the web pages.
+* Tailwind CSS for responsive design and styling, ensuring a modern and sleek user interface.
+* JavaScript for interactive story logic and branching pathways.
 
 ## 🌟 Key Features
 Interactive Narrative: The user's choices drive the story forward, creating a unique experience each time.
