@@ -18,10 +18,10 @@ WIIF is developed for the Gayatama Competition by a team of three, passionate ab
 * JavaScript for interactive story logic and branching pathways.
 
 ## 🌟 Key Features
-Interactive Narrative: The user's choices drive the story forward, creating a unique experience each time.
-Multiple Endings: Each legend has different outcomes depending on the choices made.
-Cultural Exploration: Learn about Indonesia’s rich cultural heritage through legendary stories.
-Responsive Design: Optimized for use on desktops, tablets, and mobile devices, ensuring accessibility across all platforms.      
+* Interactive Narrative: The user's choices drive the story forward, creating a unique experience each time.
+* Multiple Endings: Each legend has different outcomes depending on the choices made.
+* Cultural Exploration: Learn about Indonesia’s rich cultural heritage through legendary stories.
+* Responsive Design: Optimized for use on desktops, tablets, and mobile devices, ensuring accessibility across all platforms.      
 
 ## 📖 How to Run the Project
 
