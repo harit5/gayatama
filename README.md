@@ -7,10 +7,10 @@ This project is an interactive web experience that brings together various folkl
 WIIF is developed for the Gayatama Competition by a team of three, passionate about showcasing the rich cultural heritage of Indonesia in an interactive and modern format. The goal of this project is to allow users to explore and interact with Indonesia's timeless folklore stories while making decisions that affect the story’s outcome.
 
 ## 🎮 How it Works
-Users select a legend from Indonesia’s vast folklore.
-At critical points in the story, users are given two choices that direct them down different narrative paths.
-Each decision results in a new direction for the story, leading to multiple possible endings.
-This dynamic storytelling method allows for a fresh and immersive experience with every replay!
+* Users select a legend from Indonesia’s vast folklore.
+* At critical points in the story, users are given two choices that direct them down different narrative paths.
+* Each decision results in a new direction for the story, leading to multiple possible endings.
+* This dynamic storytelling method allows for a fresh and immersive experience with every replay!
 
 ## 🔧 Technologies Used
 * HTML5 for structuring the web pages.
