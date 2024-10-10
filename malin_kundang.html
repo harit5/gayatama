@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Malin Kundang</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,34 +25,42 @@
   </script>
 </head>
 
-<body>
-  <nav class="flex py-6 justify-around h-7 items-center bg-[#2f2f2f] mb-10">
+<body class="flex flex-col min-h-screen">
+
+  <nav class="flex py-6 justify-around h-7 items-center bg-[#2f2f2f] ">
     <div class="grow ml-3 flex items-center w-4">
       <a href="index.html" class=""><img src="assets/image.png" class="w-14" alt="logo"></a>
-      <h1 class="text-white ml-3">Malin Kundang</h1>
+      <h1 class="text-white ml-3 w-3 sm:w-max">Malin Kundang</h1>
     </div>
-    <div class="grow flex">
-      <h1 class="text-white">1/?</h1>
+    <div class="grow flex w-fit">
+      <h1 class="text-white" id="stage">1 / 6</h1>
+    </div>
+    <div class="mr-5 w-fit">
+      <h1 class="text-white" id="stage">1 / 6</h1>
     </div>
   </nav>
 
-  <div id="story">
-    <img src="assets/covermalin.webp" alt="" class="w-64 block mx-auto mb-5">
+  <main class="bg-[#FFFDE7] p-5 flex-1">
+    <img src="assets/covermalin.webp" id="illustration" class="w-64 block mx-auto mb-5" alt="Illustration">
     <p id="story-text" class="text-center border rounded-lg p-5 w-[80%] mx-auto">
       Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai
       besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
     </p>
-    <div class="mx-auto w-max mt-6">
-      <button id="choiceA" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">Sail through the storm</button>
-      <button id="choiceB" class="bg-[#d9c6a6] p-3 rounded text-sm w-32">Turn back to the shore</button>
+    <div class="mx-auto w-[270px] sm:w-72 mt-6 flex justify-evenly">
+      <button id="choiceA"
+        class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center">Sail
+        through the storm</button>
+      <button id="choiceB"
+        class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center">Turn
+        back to the shore</button>
     </div>
-  </div>
+  </main>
 
-  <footer class="p-2 sm:p-3 flex justify-between bg-[#d39747] mt-6">
-    <img src="assets/WIIF_LOGO-removebg-preview.png" alt="" class="w-14 sm:w-20">
+  <footer class="p-2 sm:p-3 flex justify-between bg-[#d39747]">
+    <img src="assets/WIIF_LOGO-removebg-preview.png" alt="Logo" class="w-14 sm:w-20">
     <ul class="flex w-52 justify-around text-lg items-center">
-      <li class="hover:text-slate-600 transition-colors text-sm sm:text-lg"><a href="about.html">About</a></li>
-      <li class="hover:text-slate-600 transition-colors text-sm sm:text-lg"><a href="help.html">Help</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm sm:text-base"><a href="about.html">About</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm sm:text-base"><a href="help.html">Help</a></li>
     </ul>
   </footer>
 
@@ -60,77 +68,202 @@
     const storyText = document.getElementById("story-text");
     const choiceA = document.getElementById("choiceA");
     const choiceB = document.getElementById("choiceB");
+    const stage = document.getElementById("stage");
+    const illustration = document.getElementById("illustration");
 
     let currentStage = 1;
 
-    // Event listener for choice A
-    choiceA.addEventListener("click", function () {
-      if (currentStage === 1) {
-        storyText.textContent =
-          "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.";
-        choiceA.textContent = "Fight the pirates";
-        choiceB.textContent = "Hide below deck";
-        currentStage = 2;
-      } else if (currentStage === 2) {
-        storyText.textContent =
-          "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.";
-        endStory();
-      } else if (currentStage === 3) {
-        storyText.textContent =
-          "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...";
-        choiceA.textContent = "Malin pushes his mother";
-        choiceB.textContent = "Malin hugs his mother tightly";
-        currentStage = 4;
-      } else if (currentStage === 4) {
-        storyText.textContent = "Malin pushed his mother away from him. In fact, he shoved her, insulted her, and refused to acknowledge that she was his mother. Malin's mother was so sad and angry. Therefore, she immediately raised her hands and prayed," + "Oh God, if he is truly my son, I curse him to become a stone." + "When cursed by his mother, Malin was startled and pondered deeply about what would happen next if he were cursed by his mother.";
-        choiceA.textContent = "Malin did not respond to his mother's curse.";
-        choiceB.textContent = "Malin apoligized to his mother";
-        currentStage = 5;
-      }else if (currentStage===5) {
-        storyText.textContent =
-          "Tidak berapa lama kemudian angin bergemuruh kencang dan badai dahsyat. Tubuh Malin Kundang pun perlahan kaku dan menjadi sebuah batu karang.";
-        endStory();
-        
+    // Define the story flow using a state machine approach
+    const story = {
+      1: {
+        text: "Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.",
+        image: "assets/covermalin.webp",
+        choices: {
+          A: {
+            text: "Sail through the storm",
+            next: 2
+          },
+          B: {
+            text: "Turn back to the shore",
+            next: "end1"
+          }
+        }
+      },
+      2: {
+        text: "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.",
+        image: "assets/scene2.webp",
+        choices: {
+          A: {
+            text: "Fight the pirates",
+            next: "end2"
+          },
+          B: {
+            text: "Hide below deck",
+            next: 3
+          }
+        }
+      },
+      3: {
+        text: "Malin Kundang was stranded in the middle of the sea, until eventually, the ship he was on was washed ashore on a beach. With the remaining strength he had, Malin Kundang walked towards the nearest village from the beach. While on that foreign island, Malin was offered a job by the local residents, but he thought about returning to his mother because he was worried about encountering pirates on the island.",
+        image: "assets/scene3.webp",
+        choices: {
+          A: {
+            text: "Accept the job",
+            next: "end3a"
+          },
+          B: {
+            text: "Reject the job",
+            next: "end3b"
+          }
+        }
+      },
+      4: {
+        text: "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...",
+        image: "assets/scene4.webp",
+        choices: {
+          A: {
+            text: "Malin pushes his mother",
+            next: 5
+          },
+          B: {
+            text: "Malin hugs his mother tightly",
+            next: "end4b"
+          }
+        }
+      },
+      5: {
+        text: "Malin pushed his mother away from him. In fact, he shoved her, insulted her, and refused to acknowledge that she was his mother. Malin's mother was so sad and angry. Therefore, she immediately raised her hands and prayed, 'Oh God, if he is truly my son, I curse him to become a stone.' When cursed by his mother, Malin was startled and pondered deeply about what would happen next if he were cursed by his mother.",
+        image: "assets/scene5.webp",
+        choices: {
+          A: {
+            text: "Malin did not respond to his mother's curse.",
+            next: "end5a"
+          },
+          B: {
+            text: "Malin apologized to his mother",
+            next: "end5b"
+          }
+        }
       }
-    });
+    };
 
-    // Event listener for choice B
-    choiceB.addEventListener("click", function () {
-      if (currentStage === 1) {
-        storyText.textContent =
-          "Malin Kundang's father returned home and postponed his departure to a foreign land until the weather improved. Malin Kundang's father went to a foreign land a year ago and returned happily.";
-        endStory();
-      } else if (currentStage === 2) {
-        storyText.textContent =
-          "Malin Kundang was stranded in the middle of the sea, until eventually, the ship he was on was washed ashore on a beach. With the remaining strength he had, Malin Kundang walked towards the nearest village from the beach.While on that foreign island, Malin was offered a job by the local residents there, but Malin thought about returning to his mother because he was worried about encountering pirates on the island.";
-        choiceA.textContent = "Accept the job";
-        choiceB.textContent = "Reject the job";
-        currentStage = 3;
-      } else if (currentStage === 3) {
-        storyText.textContent = "Malin rejects the job and continues his journey.";
-        endStory();
-      } else if (currentStage === 4) {
-        storyText.textContent = "Malin hugged his mother tightly, and in the end, Malin and his family lived happily in their village.";
-        endStory();
-      }else if (currentStage===5) {
-        storyText.textContent =
-          "Malin kundang lalu dimaafkan oleh ibunya dan akhirnya malin dan keluarganya hidup bahagia";
-        endStory();
-        
+    // Define the endings
+    const endings = {
+      end1: {
+        text: "Malin Kundang's father returned home and postponed his departure to a foreign land until the weather improved. Malin Kundang's father went to a foreign land a year ago and returned happily.",
+        image: "assets/end1.webp",
+        type: "end"
+      },
+      end2: {
+        text: "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.",
+        image: "assets/end2.webp",
+        type: "end"
+      },
+      end3a: {
+        text: "Malin accepted the job and continued his journey, but he never returned to his mother.",
+        image: "assets/end3a.webp",
+        type: "end"
+      },
+      end3b: {
+        text: "Malin rejected the job and continued his journey.",
+        image: "assets/end3b.webp",
+        type: "end"
+      },
+      end4b: {
+        text: "Malin hugged his mother tightly, and in the end, Malin and his family lived happily in their village.",
+        image: "assets/end4b.webp",
+        type: "end"
+      },
+      end5a: {
+        text: "Tidak berapa lama kemudian angin bergemuruh kencang dan badai dahsyat. Tubuh Malin Kundang pun perlahan kaku dan menjadi sebuah batu karang.",
+        image: "assets/end5a.webp",
+        type: "end"
+      },
+      end5b: {
+        text: "Malin Kundang lalu dimaafkan oleh ibunya dan akhirnya Malin serta keluarganya hidup bahagia.",
+        image: "assets/end5b.webp",
+        type: "end"
       }
-    });
+    };
 
-    // End of story actions
-    function endStory() {
-      choiceA.textContent = "Back to beginning";
-      choiceB.textContent = "Back To Home";
-      choiceA.onclick = function () {
-        location.reload(); 
-      };
-      choiceB.onclick = function () {
-        window.location.href = 'index.html';
-      };
+    // Function to update the story
+    function updateStory(state) {
+      if (story[state]) {
+        // Update story text and image
+        storyText.textContent = story[state].text;
+        illustration.src = story[state].image;
+
+        // Update choices
+        choiceA.textContent = story[state].choices.A.text;
+        choiceB.textContent = story[state].choices.B.text;
+
+        // Update stage
+        stage.textContent = `${currentStage} / 5`;
+      } else if (endings[state]) {
+        // Update story text and image for endings
+        storyText.textContent = endings[state].text;
+        illustration.src = endings[state].image;
+
+        // Update stage to END
+        stage.textContent = "END";
+
+        // Update buttons for endings
+        choiceA.textContent = "Back to Beginning";
+        choiceB.textContent = "Back to Home";
+
+        // Change button styles
+        choiceA.classList.remove("bg-[#d9c6a6]");
+        choiceA.classList.add("bg-sky-400");
+        choiceB.classList.remove("bg-[#d9c6a6]");
+        choiceB.classList.add("bg-red-400");
+
+        // Remove existing event listeners
+        choiceA.replaceWith(choiceA.cloneNode(true));
+        choiceB.replaceWith(choiceB.cloneNode(true));
+
+        // Re-select buttons after cloning
+        const newChoiceA = document.getElementById("choiceA");
+        const newChoiceB = document.getElementById("choiceB");
+
+        // Add new event listeners
+        newChoiceA.addEventListener("click", () => {
+          location.reload();
+        });
+
+        newChoiceB.addEventListener("click", () => {
+          window.location.href = 'index.html';
+        });
+      }
     }
+
+    // Event listener for Choice A
+    choiceA.addEventListener("click", function () {
+      if (story[currentStage] && story[currentStage].choices.A.next) {
+        const next = story[currentStage].choices.A.next;
+        if (typeof next === 'number') {
+          currentStage = next;
+          updateStory(next);
+        } else {
+          updateStory(next);
+        }
+      }
+    });
+
+    // Event listener for Choice B
+    choiceB.addEventListener("click", function () {
+      if (story[currentStage] && story[currentStage].choices.B.next) {
+        const next = story[currentStage].choices.B.next;
+        if (typeof next === 'number') {
+          currentStage = next;
+          updateStory(next);
+        } else {
+          updateStory(next);
+        }
+      }
+    });
+
+    // Initialize the story
+    updateStory(currentStage);
   </script>
 
 </body>
