@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Malin Kundang</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,20 +30,16 @@
 
   <nav class="flex py-6 justify-around h-7 items-center bg-[#2f2f2f] ">
     <div class="grow ml-3 flex items-center w-4">
-      <a href="index.html" class=""><img src="assets/image.png" class="w-14" alt="logo"></a>
-      <h1 class="text-white ml-3 w-3 sm:w-max">Malin Kundang</h1>
+      <a href="index.html" class=""><img src="assets/logo.png" class="w-14" alt="logo"></a>
+      <h1 class="text-white ml-3 w-3 sm:w-max text-sm">Malin Kundang</h1>
     </div>
-    <div class="grow flex w-fit">
-      <h1 class="text-white" id="stage">1 / 6</h1>
-    </div>
-    <div class="mr-5 w-fit">
-      <h1 class="text-white" id="stage">1 / 6</h1>
-    </div>
+    <h1 class="grow flex w-fit text-white mr-5" id="stage">1 / 6</h1>
   </nav>
 
   <main class="bg-[#FFFDE7] p-5 flex-1">
-    <img src="assets/covermalin.webp" id="illustration" class="w-64 block mx-auto mb-5" alt="Illustration">
-    <p id="story-text" class="text-center border rounded-lg p-5 w-[80%] mx-auto">
+    <img src="assets/covermalin.webp" id="illustration" class="w-80 sm:w-[400px] sm:h-[300px] object-cover mx-auto mb-5"
+      alt="Illustration">
+    <p id="story-text" class="text-center border rounded-lg p-5 sm:w-[400px] lg:w-[80%] mx-auto">
       Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai
       besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
     </p>
@@ -56,14 +53,17 @@
     </div>
   </main>
 
-  <footer class="p-2 sm:p-3 flex justify-between bg-[#d39747]">
-    <img src="assets/WIIF_LOGO-removebg-preview.png" alt="Logo" class="w-14 sm:w-20">
-    <ul class="flex w-52 justify-around text-lg items-center">
-      <li class="hover:text-slate-600 transition-colors text-sm sm:text-base"><a href="about.html">About</a></li>
-      <li class="hover:text-slate-600 transition-colors text-sm sm:text-base"><a href="help.html">Help</a></li>
-    </ul>
+  <footer class="bg-[#d39747] py-2 flex flex-col">
+    <div class="flex justify-between mx-auto w-[90%] flex-wrap items-center">
+      <a href="index.html"><img src="assets/dark-logo.png" alt="" class="w-14 sm:w-20"></a>
+      <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold">
+        <li class="hover:text-slate-600 transition-colors text-sm"><a href="index.html">Home</a></li>
+        <li class="hover:text-slate-600 transition-colors text-sm"><a href="about.html">About</a></li>
+        <li class="hover:text-slate-600 transition-colors text-sm"><a href="help.html">Help</a></li>
+      </ul>
+    </div>
   </footer>
-
+  <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-2">Copyright © 2024 WIIF</h1>
   <script>
     const storyText = document.getElementById("story-text");
     const choiceA = document.getElementById("choiceA");
@@ -76,7 +76,7 @@
     // Define the story flow using a state machine approach
     const story = {
       1: {
-        text: "Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.",
+        text: "In a village on the coast of Sumatra, there lived a boy named Malin Kundang with his mom and dad. His dad decided to go to another country to find a better life, so he sailed away on a big ship.  Just before his dad got on the ship, the sky turned dark, and it looked like there was going to be a big storm. His dad started to worry about going on the trip.",
         image: "assets/covermalin.webp",
         choices: {
           A: {
@@ -155,17 +155,17 @@
         type: "end"
       },
       end2: {
-        text: "While fighting the pirates, Malin Kundang was captured and imprisoned by them. In the end, Malin was thrown into the middle of the sea by the pirates, and he died.",
+        text: "When Malin Kundang fought some pirates, they caught him and kept him as a prisoner. He tried to run away, but the pirates caught him again. The pirates' boss made Malin Kundang meet him, and the guards wanted to throw Malin Kundang into the sea. The boss said yes, so Malin Kundang was thrown into the ocean and died.",
         image: "assets/end2.webp",
         type: "end"
       },
       end3a: {
-        text: "Malin accepted the job and continued his journey, but he never returned to his mother.",
+        text: " Malin settled in the village and worked diligently and persistently. Malin eventually became very wealthy and married a young woman. News of Malin Kundang's wealth and marriage also reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by crew members and guards. As Malin disembarked from the ship, his mother stood close by and was certain that it was her son because she saw a scar on his arm. She immediately hugged Malin, as it had been so long since she last saw him.",
         image: "assets/end3a.webp",
         type: "end"
       },
       end3b: {
-        text: "Malin rejected the job and continued his journey.",
+        text: "And so Malin returned to the village and met his mother. He told her that the reason he came back was because he was worried he might encounter pirates again on the island where he had stopped",
         image: "assets/end3b.webp",
         type: "end"
       },
@@ -175,12 +175,12 @@
         type: "end"
       },
       end5a: {
-        text: "Tidak berapa lama kemudian angin bergemuruh kencang dan badai dahsyat. Tubuh Malin Kundang pun perlahan kaku dan menjadi sebuah batu karang.",
+        text: "Not long after, the wind roared loudly, and a violent storm erupted. Malin felt something was wrong with his body, and soon after, his body gradually stiffened and turned into a rock.",
         image: "assets/end5a.webp",
         type: "end"
       },
       end5b: {
-        text: "Malin Kundang lalu dimaafkan oleh ibunya dan akhirnya Malin serta keluarganya hidup bahagia.",
+        text: "Malin Kundang was then forgiven by his mother, and in the end, Malin and his family lived happily ever after.",
         image: "assets/end5b.webp",
         type: "end"
       }
@@ -198,7 +198,7 @@
         choiceB.textContent = story[state].choices.B.text;
 
         // Update stage
-        stage.textContent = `${currentStage} / 5`;
+        stage.textContent = `${localStorage.getItem("selectedScene")} / 5`;
       } else if (endings[state]) {
         // Update story text and image for endings
         storyText.textContent = endings[state].text;
@@ -225,6 +225,8 @@
         const newChoiceA = document.getElementById("choiceA");
         const newChoiceB = document.getElementById("choiceB");
 
+        localStorage.setItem("selectedScene", 1)
+
         // Add new event listeners
         newChoiceA.addEventListener("click", () => {
           location.reload();
@@ -242,6 +244,7 @@
         const next = story[currentStage].choices.A.next;
         if (typeof next === 'number') {
           currentStage = next;
+          localStorage.setItem("selectedScene", currentStage);
           updateStory(next);
         } else {
           updateStory(next);
@@ -255,6 +258,7 @@
         const next = story[currentStage].choices.B.next;
         if (typeof next === 'number') {
           currentStage = next;
+          localStorage.setItem("selectedScene", currentStage);
           updateStory(next);
         } else {
           updateStory(next);
@@ -263,7 +267,8 @@
     });
 
     // Initialize the story
-    updateStory(currentStage);
+    console.log(localStorage.getItem("selectedScene"));
+    updateStory(localStorage.getItem("selectedScene"));
   </script>
 
 </body>

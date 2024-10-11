@@ -1,63 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIIF</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    // that is animation class
-                    animation: {
-                        fade: 'fadeIn 5s ease-in-out',
+                    fontFamily: {
+                        berk: ["Berkshire Swash"],
+                        mon: ["Montserrat"]
                     },
+                    colors: {
+                        'kuning': '#e0ba3d'
+                    },
+                    backgroundImage: {
 
-                    // that is actual animation
-                    keyframes: theme => ({
-                        fadeIn: {
-                            '0%': {
-                                backgroundColor: theme('colors.transparent')
-                            },
-                            '100%': {
-                                backgroundColor: theme('colors.red.300')
-                            },
-                        },
-                    }),
-                },
-            },
-
+                    },
+                }
+            }
         }
     </script>
 </head>
 
 <body class="font-mon flex flex-col min-h-screen">
     <nav class="flex py-5 justify-around h-20 items-center bg-[#5c3c23]">
-        <a href="index.html" class=""><img src="assets/image.png" class="w-20" alt="logo"></a>
+        <a href="index.html" class=""><img src="assets/logo.png" class="w-20" alt="logo"></a>
     </nav>
 
-    <section class="p-10 bg-[#FFFDE7]">
-        <h1 class="text-center font-berk font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl ">What If? Indonesian
-            Folklore</h1>
-        <p class="text-center font-mon text-sm sm:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-            magnam
-            voluptas est?</p>
-    </section>
+    <main class="p-5 bg-[#FFFDE7] flex-1">
+        <h1 class="text-center font-berk font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl lg:text-left">User Guide
+            for WIIF</h1>
+        <p class="text-center mt-2 mb-8 font-mon text-sm sm:text-base lg:text-left ">Welcome to the WIIF user guide!
+            This page will help you
+            navigate the interactive world of Indonesian folklore and make the most of your experience. Here’s
+            everything you need to know to get started!</p>
+        <h1 class="text-center font-bold text-lg sm:text-2xl lg:text-left">📖 How to Play</h1>
+        <div class="mt-5 lg:flex">
+            <div class="mb-3">
+                <h1 class="font-bold text-sm sm:text-base lg:text-left">1. Getting Started</h1>
+                <p class="text-sm ml-4"><span class="font-semibold">Access the Game:</span> Simply open your web browser
+                    and navigate to the WIIF homepage.
+                    Click on "Start Exploring" to begin your adventure.</p>
+            </div>
+            <div class="mb-3">
+                <h1 class="font-bold text-sm sm:text-base lg:text-left">2. Choosing a Legend</h1>
+                <p class="text-sm ml-4 lg:w-[90%]"><span class="font-semibold">Select a Story:</span> On the main page,
+                    you'll find a list of Indonesian legends. Browse
+                    through the titles and select the one you’d like to explore. Each legend offers a unique experience!
+                </p>
+            </div>
+            <div class="mb-3">
+                <h1 class="font-bold text-sm sm:text-base lg:text-left">3. Navigating the Story</h1>
+                <p class="text-sm ml-4"><span class="font-semibold">Follow the Narrative:</span> As you progress through
+                    the chosen legend, you will encounter
+                    different scenarios and challenges. Read the story carefully to understand the context and the
+                    decisions you’ll face.</p>
+            </div>
+            <div class="mb-3">
+                <h1 class="font-bold text-sm sm:text-base lg:text-left">4. Making Choices</h1>
+                <p class="text-sm ml-4"><span class="font-semibold">Two Choices:</span> At crucial points in the story,
+                    you will be presented with two options. These choices will influence the direction of the story.
+                    Click on the option that you want to pursue.</p>
+            </div>
+            <div class="mb-3">
+                <h1 class="font-bold text-sm sm:text-base lg:text-left">5. Exploring Different Endings</h1>
+                <p class="text-sm ml-4"><span class="font-semibold">Multiple Outcomes:</span> Depending on the choices
+                    you make, the story will lead you to different endings. Feel free to replay the legend to discover
+                    all possible outcomes and explore alternate paths!
+                </p>
+            </div>
+        </div>
+        <h1 class="text-center font-bold text-lg mt-5 sm:text-2xl lg:text-left">🌟 Tips for a Better Experience</h1>
+        <div class="mt-5 lg:flex">
+            <div class="mb-3">
+                <p class="text-sm lg:w-[90%]"><span class="font-semibold">Take Your Time:</span> Don’t rush through the
+                    story. Take your time to read the descriptions and think about your choices.</p>
+            </div>
+            <div class="mb-3">
+                <p class="text-sm lg:w-[90%]"><span class="font-semibold">Revisit Stories:</span> Each legend has
+                    multiple endings. Don’t hesitate to go back and explore different paths to fully experience the
+                    story!
+                </p>
+            </div>
+            <div class="mb-3">
+                <p class="text-sm lg:w-[90%]"><span class="font-semibold">Share Your Experience:</span> Discuss your
+                    choices and endings with friends to compare different outcomes!
 
-    <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
-        <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Our Story</h1>
-    </section>
+                </p>
+            </div>
+        </div>
+        <h1 class="text-center font-bold text-lg mt-5 sm:text-2xl lg:text-left">📚 Common Terms</h1>
+        <div class="mt-5 lg:flex mb-10">
+            <div class="mb-3">
+                <p class="text-sm "><span class="font-semibold">Legend:</span> A traditional story or tale from
+                    Indonesian culture.
+                </p>
+            </div>
+            <div class="mb-3">
+                <p class="text-sm "><span class="font-semibold">Choice Point:</span> A moment in the story where you
+                    must make a decision that affects the narrative.
 
-    <footer class=" flex justify-between bg-[#d39747] ">
-        <img src="assets/WIIF_LOGO-removebg-preview.png" alt="" class="w-14 sm:w-20">
-        <ul class="flex w-52 justify-around text-lg items-center">
-            <li class="hover:text-slate-600 transition-colors text-sm sm:text-lg"><a href="about.html">About</a></li>
-            <li class="hover:text-slate-600 transition-colors text-sm sm:text-lg"><a href="help.html">Help</a></li>
-        </ul>
+                </p>
+            </div>
+            <div class="mb-3">
+                <p class="text-sm "><span class="font-semibold">Ending: </span> The conclusion of the story based on the
+                    choices you’ve made throughout your journey.
+
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
+        <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Help</h1>
+    </section> -->
+
+    <footer class="bg-[#d39747] py-8 flex flex-col">
+        <div class="flex justify-between mx-auto w-[90%] flex-wrap items-center">
+            <a href="index.html"><img src="assets/dark-logo.png" alt="" class="w-14 sm:w-20"></a>
+            <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold">
+                <li class="hover:text-slate-600 transition-colors text-sm"><a href="index.html">Home</a></li>
+                <li class="hover:text-slate-600 transition-colors text-sm"><a href="about.html">About</a></li>
+                <li class="hover:text-slate-600 transition-colors text-sm"><a href="help.html">Help</a></li>
+            </ul>
+        </div>
     </footer>
+
+    <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-3">Copyright © 2024 WIIF</h1>
 </body>
 
 </html>
