@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Malin Kundang</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            mon: ['Montserrat']
+          },
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+  <nav class="flex py-6 justify-around h-7 items-center bg-[#2f2f2f] ">
+    <div class="grow ml-3 flex items-center w-4">
+      <a href="index.html" class=""><img src="assets/logo.png" class="w-14" alt="logo"></a>
+      <h1 class="text-white ml-3 w-3 sm:w-max text-sm">Malin Kundang</h1>
+    </div>
+    <h1 class="grow flex w-fit text-white mr-5" id="stage">1 / 6</h1>
+  </nav>
+
+  <main class="bg-[#FFFDE7] p-5 flex-1">
+    <img src="assets/covermalin.webp" id="illustration" class="w-80 sm:w-[400px] sm:h-[300px] object-cover mx-auto mb-5 object-top"
+      alt="Illustration">
+    <p id="story-text" class="text-center border rounded-lg p-5 sm:w-[400px] lg:w-[80%] mx-auto">
+      Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai
+      besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
+    </p>
+    <div class="mx-auto w-[270px] sm:w-72 mt-6 flex justify-evenly">
+      <button id="choiceA"
+        class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center">Sail
+        through the storm</button>
+      <button id="choiceB"
+        class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center">Turn
+        back to the shore</button>
+    </div>
+  </main>
+
+  <footer class="bg-[#d39747] py-2 flex flex-col">
+    <div class="flex justify-between mx-auto w-[90%] flex-wrap items-center">
+      <a href="index.html"><img src="assets/dark-logo.png" alt="" class="w-14 sm:w-20"></a>
+      <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold">
+        <li class="hover:text-slate-600 transition-colors text-sm"><a href="index.html">Home</a></li>
+        <li class="hover:text-slate-600 transition-colors text-sm"><a href="about.html">About</a></li>
+        <li class="hover:text-slate-600 transition-colors text-sm"><a href="help.html">Help</a></li>
+      </ul>
+    </div>
+  </footer>
+  <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-2">Copyright © 2024 WIIF</h1>
+
+  <script>
+    const storyText = document.getElementById("story-text");
+    const choiceA = document.getElementById("choiceA");
+    const choiceB = document.getElementById("choiceB");
+    const stage = document.getElementById("stage");
+    const illustration = document.getElementById("illustration");
+
+    let currentStage = 1;
+
+    // Define the story flow using a state machine approach
+    const story = {
+      1: {
+        text: "In a village on the coast of Sumatra, there lived a boy named Malin Kundang with his mom and dad. His dad decided to go to another country to find a better life, so he sailed away on a big ship.  Just before his dad got on the ship, the sky turned dark, and it looked like there was going to be a big storm. His dad started to worry about going on the trip.",
+        image: "assets/covermalin.webp",
+        choices: {
+          A: {
+            text: "Sail through the storm",
+            next: 2
+          },
+          B: {
+            text: "Turn back to the shore",
+            next: "end1"
+          }
+        }
+      },
+      2: {
+        text: "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.",
+        image: "assets/scene2.webp",
+        choices: {
+          A: {
+            text: "Fight the pirates",
+            next: "end2"
+          },
+          B: {
+            text: "Hide below deck",
+            next: 3
+          }
+        }
+      },
+      3: {
+        text: "Malin Kundang was stranded in the middle of the sea, until eventually, the ship he was on was washed ashore on a beach. With the remaining strength he had, Malin Kundang walked towards the nearest village from the beach. While on that foreign island, Malin was offered a job by the local residents, but he thought about returning to his mother because he was worried about encountering pirates on the island.",
+        image: "assets/scene3.webp",
+        choices: {
+          A: {
+            text: "Accept the job",
+            next: 4
+          },
+          B: {
+            text: "Reject the job",
+            next: "end3b"
+          }
+        }
+      },
+      4: {
+        text: "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...",
+        image: "assets/scene4.webp",
+        choices: {
+          A: {
+            text: "Malin pushes his mother",
+            next: 5
+          },
+          B: {
+            text: "Malin hugs his mother tightly",
+            next: "end4b"
+          }
+        }
+      },
+      5: {
+        text: "Malin pushed his mother away from him. In fact, he shoved her, insulted her, and refused to acknowledge that she was his mother. Malin's mother was so sad and angry. Therefore, she immediately raised her hands and prayed, 'Oh God, if he is truly my son, I curse him to become a stone.' When cursed by his mother, Malin was startled and pondered deeply about what would happen next if he were cursed by his mother.",
+        image: "assets/scene5.webp",
+        choices: {
+          A: {
+            text: "Malin did not respond to his mother's curse.",
+            next: "end5a"
+          },
+          B: {
+            text: "Malin apologized to his mother",
+            next: "end5b"
+          }
+        }
+      }
+    };
+
+    // Define the endings
+    const endings = {
+      end1: {
+        text: "Malin Kundang's father returned home and postponed his departure to a foreign land until the weather improved. Malin Kundang's father went to a foreign land a year ago and returned happily.",
+        image: "assets/end1.webp",
+        type: "end"
+      },
+      end2: {
+        text: "When Malin Kundang fought some pirates, they caught him and kept him as a prisoner. He tried to run away, but the pirates caught him again. The pirates' boss made Malin Kundang meet him, and the guards wanted to throw Malin Kundang into the sea. The boss said yes, so Malin Kundang was thrown into the ocean and died.",
+        image: "assets/end2.webp",
+        type: "end"
+      },
+      end3a: {
+        text: " Malin settled in the village and worked diligently and persistently. Malin eventually became very wealthy and married a young woman. News of Malin Kundang's wealth and marriage also reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by crew members and guards. As Malin disembarked from the ship, his mother stood close by and was certain that it was her son because she saw a scar on his arm. She immediately hugged Malin, as it had been so long since she last saw him.",
+        image: "assets/end3a.webp",
+        type: "end"
+      },
+      end3b: {
+        text: "And so Malin returned to the village and met his mother. He told her that the reason he came back was because he was worried he might encounter pirates again on the island where he had stopped",
+        image: "assets/end3b.jpeg",
+        type: "end"
+      },
+      end4b: {
+        text: "Malin hugged his mother tightly, and in the end, Malin and his family lived happily in their village.",
+        image: "assets/end4b.webp",
+        type: "end"
+      },
+      end5a: {
+        text: "Not long after, the wind roared loudly, and a violent storm erupted. Malin felt something was wrong with his body, and soon after, his body gradually stiffened and turned into a rock.",
+        image: "assets/end5a.webp",
+        type: "end"
+      },
+      end5b: {
+        text: "Malin Kundang was then forgiven by his mother, and in the end, Malin and his family lived happily ever after.",
+        image: "assets/end5b.webp",
+        type: "end"
+      }
+    };
+
+    // Function to update the story
+    function updateStory(state) {
+      if (story[state]) {
+        // Update story text and image
+        storyText.textContent = story[state].text;
+        illustration.src = story[state].image;
+
+        // Update choices
+        choiceA.textContent = story[state].choices.A.text;
+        choiceB.textContent = story[state].choices.B.text;
+
+        // Update stage
+        stage.textContent = `${localStorage.getItem("selectedScene")} / 5`;
+      } else if (endings[state]) {
+        // Update story text and image for endings
+        storyText.textContent = endings[state].text;
+        illustration.src = endings[state].image;
+
+        // Update stage to END
+        stage.textContent = "END";
+
+        // Update buttons for endings
+        choiceA.textContent = "Back to Beginning";
+        choiceB.textContent = "Back to Home";
+
+        // Change button styles
+        choiceA.classList.remove("bg-[#d9c6a6]");
+        choiceA.classList.add("bg-sky-400");
+        choiceB.classList.remove("bg-[#d9c6a6]");
+        choiceB.classList.add("bg-red-400");
+
+        // Remove existing event listeners
+        choiceA.replaceWith(choiceA.cloneNode(true));
+        choiceB.replaceWith(choiceB.cloneNode(true));
+
+        // Re-select buttons after cloning
+        const newChoiceA = document.getElementById("choiceA");
+        const newChoiceB = document.getElementById("choiceB");
+
+        localStorage.setItem("selectedScene", 1)
+
+        // Add new event listeners
+        newChoiceA.addEventListener("click", () => {
+          location.reload();
+        });
+
+        newChoiceB.addEventListener("click", () => {
+          window.location.href = 'index.html';
+        });
+      }
+    }
+
+    // Event listener for Choice A
+    choiceA.addEventListener("click", function () {
+      if (story[currentStage] && story[currentStage].choices.A.next) {
+        const next = story[currentStage].choices.A.next;
+        if (typeof next === 'number') {
+          currentStage = next;
+          localStorage.setItem("selectedScene", currentStage);
+          updateStory(next);
+        } else {
+          updateStory(next);
+        }
+      }
+    });
+
+    // Event listener for Choice B
+    choiceB.addEventListener("click", function () {
+      if (story[currentStage] && story[currentStage].choices.B.next) {
+        const next = story[currentStage].choices.B.next;
+        if (typeof next === 'number') {
+          currentStage = next;
+          localStorage.setItem("selectedScene", currentStage);
+          updateStory(next);
+        } else {
+          updateStory(next);
+        }
+      }
+    });
+
+    // Initialize the story
+    console.log(localStorage.getItem("selectedScene"));
+    updateStory(localStorage.getItem("selectedScene"));
+  </script>
+
+</body>
+
+</html>

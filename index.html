@@ -1,11 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gayatama</title>
+    <title>WIIF</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        berk: ["Berkshire Swash"],
+                        mon: ["Montserrat"]
+                    },
+                    colors: {
+                        'kuning': '#e0ba3d'
+                    },
+                    backgroundImage: {
+                        'malinKundang': "url('assets/covermalin.webp')",
+                        'bwg': "url('assets/coverbwg.jpeg')",
+                        'timun': "url('assets/timun.webp')",
+                        'roro': "url('assets/roro.webp')",
+                        'sang': "url('assets/sang.jpg')",
+                        'toba': "url('assets/toba.webp')",
+                        'keong': "url('assets/keong.webp')",
+                        'batumenangis': "url('assets/batumenangis.webp')",
+                        'lut': "url('assets/lut.webp')",
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <h1>Hello world</h1>
+
+<body class="font-mon flex flex-col min-h-screen">
+    <nav class="flex py-5 justify-around h-20 items-center bg-[#5c3c23]">
+        <a href="index.html" class=""><img src="assets/logo.png" class="w-20" alt="logo"></a>
+    </nav>
+
+    <section class="p-10 bg-[#FFFDE7]">
+        <h1 class="text-center font-berk font-bold text-lg sm:text-2xl lg:text-2xl xl:text-3xl ">What If? Indonesian
+            Folklore</h1>
+        <p class="text-center font-mon text-sm sm:text-lg">where ancient legends meet your choices</p>
+    </section>
+
+    <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
+        <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Our Story</h1>
+        <div class="flex mt-5 flex-wrap m-auto justify-evenly sm:w-[70%] lg:w-[90%] ">
+            <a href="malin_kundang.html" class="group mb-5">
+                <div
+                    class="w-56 h-28 sm:w-80 sm:h-40 lg:w-[416px] lg:h-52 xl:h-64 xl:w-[512px] shadow-md  bg-malinKundang group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-bottom ">
+                    <h2
+                        class="text-white backdrop-blur-[2px] p-2 text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-bold ">
+                        Malin
+                        Kundang</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        Malin Kundang is a folk tale from West Sumatra about a poor young man who goes away to seek
+                        fortune and becomes rich. When he returns, he is ashamed to recognize his poor mother. In anger,
+                        his mother curses him, and Malin Kundang turns into stone. The story teaches the importance of
+                        respecting parents.</p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md bg-timun group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Timun Mas</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        The story of Timun Mas tells about a deal made between Mbok Randa and a giant regarding Mbok
+                        Randa's wish for a child. Because of this agreement, Timun Mas is born. However, Mbok Randa
+                        breaks the promise because she cannot bear to give Timun Mas to the giant.</p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-bwg group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Bawang Merah Bawang Putih</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        The story of Cinderella in Europe tells about two stepsisters with very different personalities:
+                        Bawang Putih, who is kind and hardworking, and Bawang Merah, who is lazy and envious.</p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-roro group-hover:bg-none group-hover:bg-[#d39747] group-hover:overflow-y-auto transition bg-cover duration-400 ease-in bg-center object-cover">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Roro Jonggrang</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        The legend tells of a princess who requires Bandung Bondowoso to build a thousand temples in one
+                        night to marry her. After he tricks her by faking dawn, he curses her to become a stone statue,
+                        which explains the origin of Prambanan Temple.</p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-sang group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Sangkuriang</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        The West Javanese legend tells the story of Sangkuriang, who falls in love with his mother,
+                        Dayang Sumbi. When he learns her true identity, Sangkuriang becomes angry. To avoid marrying
+                        him, Dayang Sumbi gives him a challenge: he must build a boat in one night. When he is close to
+                        finishing, Dayang Sumbi stops him, and in his frustration, Sangkuriang kicks the boat over,
+                        which then turns into Mount Tangkuban Perahu</p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-toba group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Danau Toba</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        Toba, a farmer, marries a magical fish who turns into a beautiful woman. When he calls their son
+                        Samosir "fish child," his wife returns to the sea, creating Lake Toba with Samosir as an island.
+
+                        In another tale, Princess Sari is cursed to be a snail. A prince falls in love with her, learns
+                        her identity, and fights to break the curse, restoring her form so they can marry, emphasizing
+                        love and loyalty
+                    </p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-keong group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Keong Mas</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        A Javanese folktale about Sari, a princess cursed to become a snail. A prince unknowingly falls
+                        in love with her, and after learning her identity, he fights to break the curse. He restores her
+                        form, and they marry, emphasizing love and loyalty.
+                    </p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-batumenangis group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Batu Menangis</h2>
+                    <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        A story about a princess who rejects a prince's love and is turned into stone. Her tears then
+                        form a lake, becoming a symbol of sadness and regret.
+                    </p>
+                </div>
+            </a>
+            <a href="" class="group mb-5" onclick="soon(event)">
+                <div
+                    class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-lut group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
+                    <h2
+                        class="text-white p-2 backdrop-blur-[2px] text-center text-[9.5px] sm:text-[12px] lg:text-lg xl:text-xl font-semibold leading-4 ">
+                        Lutung Kasarung</h2>
+                    <p class="px-2 pb-1 text-[7px] sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
+                        The story of Lutung Kasarung is about a lutung (a type of monkey) who is actually a cursed
+                        prince. He tries to win the love of a princess with the help of magical powers and the
+                        challenges he must face.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-[#d39747] py-8 flex flex-col">
+        <div class="flex justify-between mx-auto w-[90%] flex-wrap items-center">
+            <a href="index.html"><img src="assets/dark-logo.png" alt="" class="w-14 sm:w-20"></a>
+            <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold">
+                <li class="hover:text-slate-600 transition-colors text-sm"><a href="index.html">Home</a></li>
+                <li class="hover:text-slate-600 transition-colors text-sm"><a href="about.html">About</a></li>
+                <li class="hover:text-slate-600 transition-colors text-sm"><a href="help.html">Help</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-3">Copyright © 2024 WIIF</h1>
+
+    <script>
+        function soon(event) {
+            console.log("halo");
+            event.preventDefault();
+            alert("Coming soon");
+        }
+    </script>
 </body>
+
 </html>
