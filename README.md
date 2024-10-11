@@ -26,10 +26,10 @@ WIIF is developed for the Gayatama Competition by a team of three, passionate ab
 ## 📖 How to Run the Project
 
 ### Clone the repository :
-```git clone https://github.com/yourusername/wiif-indonesian-folklore.git```
+```git clone https://github.com/harit5/gayatama.git```
 
 ### Navigate to the project folder :
-```cd wiif-indonesian-folklore```
+```cd gayatama```
 
 ### Open index.html in your browser to begin exploring the stories.
 
