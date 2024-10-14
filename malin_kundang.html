@@ -37,11 +37,10 @@
   </nav>
 
   <main class="bg-[#FFFDE7] p-5 flex-1">
-    <img src="assets/covermalin.webp" id="illustration" class="w-80 sm:w-[400px] sm:h-[300px] object-cover mx-auto mb-5 object-top"
-      alt="Illustration">
+    <img src="assets/covermalin.webp" id="illustration"
+      class="w-80 sm:w-[400px] sm:h-[300px] object-cover mx-auto mb-5 object-top" alt="Illustration">
     <p id="story-text" class="text-center border rounded-lg p-5 sm:w-[400px] lg:w-[80%] mx-auto">
-      Sebelum ayah Malin Kundang berangkat menaiki kapal, tiba-tiba langit menjadi gelap menandakan akan terjadi badai
-      besar, lalu ayah Malin Kundang menjadi bimbang untuk menaiki kapal.
+      In a village on the coast of Sumatra, there lived a boy named Malin Kundang with his mom and dad. His dad decided to go to another country to find a better life, so he sailed away on a big ship. Just before his dad got on the ship, the sky turned dark, and it looked like there was going to be a big storm. His dad started to worry about going on the trip.
     </p>
     <div class="mx-auto w-[270px] sm:w-72 mt-6 flex justify-evenly">
       <button id="choiceA"
@@ -71,8 +70,10 @@
     const choiceB = document.getElementById("choiceB");
     const stage = document.getElementById("stage");
     const illustration = document.getElementById("illustration");
+    const speed = 100;
 
     let currentStage = 1;
+    let index = 0;
 
     // Define the story flow using a state machine approach
     const story = {
@@ -190,7 +191,13 @@
     // Function to update the story
     function updateStory(state) {
       if (story[state]) {
-        // Update story text and image
+        // let sceneText = story[state].text
+        // // Update story text and image
+        // while (index <  sceneText.length) {
+        //   storyText.innerHTML += sceneText.charAt(index);
+        //   index++;
+        // }
+        // setTimeout(updateStory, speed);
         storyText.textContent = story[state].text;
         illustration.src = story[state].image;
 
@@ -268,7 +275,6 @@
     });
 
     // Initialize the story
-    console.log(localStorage.getItem("selectedScene"));
     updateStory(localStorage.getItem("selectedScene"));
   </script>
 
