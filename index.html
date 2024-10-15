@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -56,14 +57,27 @@
 
     <section class="p-3 h-max bg-[url('assets/bgbatik.jpeg')] flex-1">
         <h1 class="text-lg font-bold font-berk text-center sm:text-xl lg:text-2xl xl:text-3xl">Our Story</h1>
+
+        <div class="max-w-md mx-auto mt-5">
+            <div class="relative text-gray-600">
+                <input name="search" id="searchInput" oninput="search()" placeholder="Search"
+                    class="bg-white h-10 px-5 pr-10 rounded-full w-full text-sm focus:outline-none">
+                <button type="button" id="actionSearch" class="absolute right-0 top-0 mt-3 mr-4"
+                    onclick="clearSearch()">
+                    <i class="h-4 w-4" id="searchIcon" data-feather="search"></i>
+                    <i class="h-4 w-4 hidden" id="xIcon" data-feather="x"></i>
+                </button>
+            </div>
+        </div>
+
         <div class="flex mt-5 flex-wrap m-auto justify-evenly sm:w-[70%] lg:w-[90%] ">
-            <a href="malin_kundang.html" class="group mb-5">
+            <p id="notFoundMessage" class="hidden text-center text-xl text-gray-500 my-auto h-full">No stories found</p>
+            <a href="malin_kundang.html" class="group mb-5 story">
                 <div
                     class="w-56 h-28 sm:w-80 sm:h-40 lg:w-[416px] lg:h-52 xl:h-64 xl:w-[512px] shadow-md  bg-malinKundang group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-bottom ">
                     <h2
                         class="text-white backdrop-blur-[2px] p-2 text-center text-[8px] sm:text-[12px] lg:text-lg xl:text-xl font-bold ">
-                        Malin
-                        Kundang</h2>
+                        Malin Kundang</h2>
                     <p class="px-2 text-[7px] pb-1 sm:text-[10px] lg:text-sm hidden group-hover:block text-white">
                         Malin Kundang is a folk tale from West Sumatra about a poor young man who goes away to seek
                         fortune and becomes rich. When he returns, he is ashamed to recognize his poor mother. In anger,
@@ -71,7 +85,7 @@
                         respecting parents.</p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md bg-timun group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
                     <h2
@@ -83,7 +97,7 @@
                         breaks the promise because she cannot bear to give Timun Mas to the giant.</p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-bwg group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
                     <h2
@@ -94,7 +108,7 @@
                         Bawang Putih, who is kind and hardworking, and Bawang Merah, who is lazy and envious.</p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-roro group-hover:bg-none group-hover:bg-[#d39747] group-hover:overflow-y-auto transition bg-cover duration-400 ease-in bg-center object-cover">
                     <h2
@@ -106,7 +120,7 @@
                         which explains the origin of Prambanan Temple.</p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-sang group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
                     <h2
@@ -120,7 +134,7 @@
                         which then turns into Mount Tangkuban Perahu</p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-toba group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
                     <h2
@@ -136,7 +150,7 @@
                     </p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-keong group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
                     <h2
@@ -149,7 +163,7 @@
                     </p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-batumenangis group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover">
                     <h2
@@ -161,7 +175,7 @@
                     </p>
                 </div>
             </a>
-            <a href="" class="group mb-5" onclick="soon(event)">
+            <a href="" class="group mb-5 story" onclick="soon(event)">
                 <div
                     class="w-28 h-28 sm:w-40 sm:h-40 lg:w-52 lg:h-52 xl:h-64 xl:w-64 shadow-md  bg-lut group-hover:bg-none group-hover:bg-[#d39747] transition bg-cover duration-400 ease-in bg-center object-cover group-hover:overflow-y-auto">
                     <h2
@@ -177,17 +191,63 @@
     </section>
 
     <footer class="bg-[#d39747] py-4 flex flex-col items-center">
-        <a href="index.html"><img src="assets/dark-logo.png" alt="WIIF LOGO" class="h-16 sm:h-28 w-min"></a>
+        <a href="index.html"><img src="assets/dark-logo.png" alt="WIIF LOGO" class="h-14 sm:h-20 w-min"></a>
         <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold mt-5 mb-2">
-            <li class="hover:text-slate-600 transition-colors text-sm lg:text-base"><a href="index.html">Home</a></li>
-            <li class="hover:text-slate-600 transition-colors text-sm lg:text-base"><a href="about.html">About</a></li>
-            <li class="hover:text-slate-600 transition-colors text-sm lg:text-base"><a href="help.html">Help</a></li>
+            <li class="hover:text-slate-600 transition-colors text-sm "><a href="index.html">Home</a></li>
+            <li class="hover:text-slate-600 transition-colors text-sm "><a href="about.html">About</a></li>
+            <li class="hover:text-slate-600 transition-colors text-sm "><a href="help.html">Help</a></li>
         </ul>
     </footer>
 
     <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-3">Copyright © 2024 WIIF</h1>
 
     <script>
+        feather.replace();
+        const stories = document.querySelectorAll('.story');
+        const searchIcon = document.getElementById('searchIcon');
+        const xIcon = document.getElementById('xIcon');
+        const searchInput = document.getElementById('searchInput');
+        const notFoundMessage = document.getElementById('notFoundMessage');
+
+        function search() {
+            const input = searchInput.value.toLowerCase();
+            let found = false;
+
+            stories.forEach(story => {
+                const title = story.querySelector('h2').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    story.classList.remove("hidden");
+                    console.log(input);
+                    found = true;
+                } else {
+                    story.classList.add("hidden");
+                }
+            });
+
+            if (!found) {
+                notFoundMessage.classList.remove('hidden');
+            } else {
+                notFoundMessage.classList.add('hidden');
+            }
+
+            if (input) {
+                searchIcon.classList.add("hidden");
+                xIcon.classList.remove("hidden");
+            } else {
+                searchIcon.classList.remove("hidden");
+                xIcon.classList.add("hidden");
+            }
+        }
+
+        function clearSearch() {
+            // Clear the input and reset everything
+            searchInput.value = "";
+            stories.forEach(story => story.classList.remove("hidden"));
+            notFoundMessage.classList.add('hidden');
+            searchIcon.classList.remove("hidden");
+            xIcon.classList.add("hidden");
+        }
+
         function soon(event) {
             console.log("halo");
             event.preventDefault();
