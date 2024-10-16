@@ -39,9 +39,17 @@
   <main class="bg-[#FFFDE7] p-5 flex-1">
     <img src="assets/covermalin.webp" id="illustration"
       class="w-80 sm:w-[400px] sm:h-[300px] object-cover mx-auto mb-5 object-top" alt="Illustration">
-    <p id="story-text" class="text-center border rounded-lg p-5 sm:w-[400px] lg:w-[80%] mx-auto">
-      In a village on the coast of Sumatra, there lived a boy named Malin Kundang with his mom and dad. His dad decided to go to another country to find a better life, so he sailed away on a big ship. Just before his dad got on the ship, the sky turned dark, and it looked like there was going to be a big storm. His dad started to worry about going on the trip.
-    </p>
+    <div class="flex flex-col items-center ">
+      <p id="story-text" class="text-center border rounded-lg p-5 sm:w-[400px] lg:w-[80%]">
+        In a village on the coast of Sumatra, there lived a boy named Malin Kundang with his mom and dad. His dad
+        decided
+        to go to another country to find a better life, so he sailed away on a big ship. Just before his dad got on the
+        ship, the sky turned dark, and it looked like there was going to be a big storm. His dad started to worry about
+        going on the trip.
+      </p>
+      <p id="skip" class="mt-2 underline cursor-pointer text-slate-500 w-min">Skip</p>
+    </div>
+
     <div class="mx-auto w-[270px] sm:w-72 mt-6 flex justify-evenly">
       <button id="choiceA"
         class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center">Sail
@@ -52,26 +60,15 @@
     </div>
   </main>
 
-  
+
   <footer class="bg-[#d39747] py-4 flex flex-col items-center">
     <a href="index.html"><img src="assets/dark-logo.png" alt="WIIF LOGO" class="h-14 sm:h-20 w-min"></a>
     <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold mt-5 mb-2">
-        <li class="hover:text-slate-600 transition-colors text-sm "><a href="index.html">Home</a></li>
-        <li class="hover:text-slate-600 transition-colors text-sm "><a href="about.html">About</a></li>
-        <li class="hover:text-slate-600 transition-colors text-sm "><a href="help.html">Help</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm "><a href="index.html">Home</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm "><a href="about.html">About</a></li>
+      <li class="hover:text-slate-600 transition-colors text-sm "><a href="help.html">Help</a></li>
     </ul>
-</footer>
-
-  <!-- <footer class="bg-[#d39747] py-2 flex flex-col">
-    <div class="flex justify-between mx-auto w-[90%] flex-wrap items-center">
-      <a href="index.html"><img src="assets/dark-logo.png" alt="" class="w-14 sm:w-20"></a>
-      <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold">
-        <li class="hover:text-slate-600 transition-colors text-sm"><a href="index.html">Home</a></li>
-        <li class="hover:text-slate-600 transition-colors text-sm"><a href="about.html">About</a></li>
-        <li class="hover:text-slate-600 transition-colors text-sm"><a href="help.html">Help</a></li>
-      </ul>
-    </div>
-  </footer> -->
+  </footer>
   <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-2">Copyright © 2024 WIIF</h1>
 
   <script>
@@ -80,10 +77,12 @@
     const choiceB = document.getElementById("choiceB");
     const stage = document.getElementById("stage");
     const illustration = document.getElementById("illustration");
-    const speed = 100;
+    const skipButton = document.getElementById("skip");
+    const speed = 40;
 
-    let currentStage = 1;
-    let index = 0;
+    let currentStage = parseInt(localStorage.getItem("selectedScene")) || 1;
+    let typingTimeout; // To keep track of the current typing timeout
+    let skipClicked = false;
 
     // Define the story flow using a state machine approach
     const story = {
@@ -198,17 +197,51 @@
       }
     };
 
+    function typeWriter(text, element, callback) {
+      let i = 0;
+      element.innerHTML = ""; // Clear existing text
+      skipButton.style.display = "block"; // Show the skip button
+      choiceA.style.display = "none";
+      choiceB.style.display = "none";
+      skipClicked = false; // Reset the skip flag
+      
+      function type() {
+        if (i < text.length && !skipClicked) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          typingTimeout = setTimeout(type, speed);
+        } else {
+          if (!skipClicked && callback) callback();
+          skipButton.style.display = "none"; // Hide the skip button after typing
+          choiceA.style.display = "block";
+          choiceB.style.display = "block";
+        }
+      }
+      
+      type();
+    }
+
+    // Skip Button Event Listener
+    skipButton.addEventListener("click", function () {
+      if (!skipClicked) {
+        skipClicked = true; // Set the skip flag to true
+        clearTimeout(typingTimeout); // Clear the ongoing typing timeout
+        // Determine the current state to fetch full text
+        const currentState = story[currentStage] || endings[currentStage];
+        storyText.innerHTML = currentState.text; // Display full text
+        skipButton.style.display = "none"; // Hide the skip button
+        choiceA.style.display = "block";
+        choiceB.style.display = "block";
+      }
+    });
     // Function to update the story
     function updateStory(state) {
       if (story[state]) {
-        // let sceneText = story[state].text
-        // // Update story text and image
-        // while (index <  sceneText.length) {
-        //   storyText.innerHTML += sceneText.charAt(index);
-        //   index++;
-        // }
-        // setTimeout(updateStory, speed);
-        storyText.textContent = story[state].text;
+        // Clear the story text
+        storyText.innerHTML = "";
+
+        // Typewriter effect for the story text
+        typeWriter(story[state].text, storyText, 0);
         illustration.src = story[state].image;
 
         // Update choices
@@ -219,7 +252,8 @@
         stage.textContent = `${localStorage.getItem("selectedScene")} / 5`;
       } else if (endings[state]) {
         // Update story text and image for endings
-        storyText.textContent = endings[state].text;
+        storyText.innerHTML = "";
+        typeWriter(endings[state].text, storyText, 0);
         illustration.src = endings[state].image;
 
         // Update stage to END
@@ -235,22 +269,14 @@
         choiceB.classList.remove("bg-[#d9c6a6]");
         choiceB.classList.add("bg-red-400");
 
-        // Remove existing event listeners
-        choiceA.replaceWith(choiceA.cloneNode(true));
-        choiceB.replaceWith(choiceB.cloneNode(true));
-
-        // Re-select buttons after cloning
-        const newChoiceA = document.getElementById("choiceA");
-        const newChoiceB = document.getElementById("choiceB");
-
         localStorage.setItem("selectedScene", 1)
 
         // Add new event listeners
-        newChoiceA.addEventListener("click", () => {
+        choiceA.addEventListener("click", () => {
           location.reload();
         });
 
-        newChoiceB.addEventListener("click", () => {
+        choiceB.addEventListener("click", () => {
           window.location.href = 'index.html';
         });
       }
