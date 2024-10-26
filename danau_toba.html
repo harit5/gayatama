@@ -80,79 +80,79 @@
     const speed = 40;
     const refresh = document.getElementById("refresh");
 
-    let currentStage = parseInt(localStorage.getItem("selectedScene")) || 1;
+    let currentStage = parseInt(localStorage.getItem("selectedDTScene")) || 1;
     let typingTimeout; // To keep track of the current typing timeout
     let skipClicked = false;
 
     // Define the story flow using a state machine approach
     const story = {
       1: {
-        text: "In a village on the coast of Sumatra, there lived a boy named Malin Kundang with his mom and dad. His dad decided to go to another country to find a better life, so he sailed away on a big ship.  Just before his dad got on the ship, the sky turned dark, and it looked like there was going to be a big storm. His dad started to worry about going on the trip.",
+        text: "Toba adalah seorang petani yang hidup sendiri di desa kecil. Suatu hari, ketika sedang memancing, Toba mendapatkan ikan yang sangat besar dan cantik. Apa yang terjadi setelah itu?",
         image: "assets/covermalin.webp",
         choices: {
           A: {
-            text: "Sail through the storm",
+            text: "Ikan berbicara.",
             next: 2
           },
           B: {
-            text: "Turn back to the shore",
+            text: "Toba masak ikan.",
             next: "end1"
           }
         }
       },
       2: {
-        text: "Since then, Malin's mother worked to support them both. Malin was a clever but sometimes mischievous boy. He liked chasing chickens, and once he fell and left a scar on his arm. When Malin grew up, he felt pity for his mother, who was old but still working. In the middle of his journey, Malin Kundang’s ship was attacked by pirates. Malin had to choose whether to fight or hide.",
+        text: "Toba, yang terkejut, mendengarkan permohonan ikan itu. Karena tersentuh, Toba memutuskan untuk tidak membunuh ikan tersebut. Tak lama kemudian, ikan itu berubah menjadi seorang gadis cantik yang terkena kutukan, dan berterima kasih kepada Toba. <br><br>Ikan tersebut ternyata adalah jelmaan seorang gadis cantik yang terkena kutukan. Gadis itu menawarkan untuk menikahi Toba, namun dengan satu syarat. Apakah syarat yang diberikan gadis itu?",
         image: "assets/scene2.webp",
         choices: {
           A: {
-            text: "Fight the pirates",
-            next: "end2"
+            text: " Bungkam Mengenai asal-usul ikan.",
+            next: 3
           },
           B: {
-            text: "Hide below deck",
-            next: 3
+            text: "memberi makan terbaik ke ikan tiap hari.",
+            next: "end2"
           }
         }
       },
       3: {
-        text: "Malin Kundang was stranded in the middle of the sea, until eventually, the ship he was on was washed ashore on a beach. With the remaining strength he had, Malin Kundang walked towards the nearest village from the beach. While on that foreign island, Malin was offered a job by the local residents, but he thought about returning to his mother because he was worried about encountering pirates on the island.",
+        text: " Toba dengan senang hati setuju untuk tidak pernah menyebutkan asal-usul istrinya sebagai ikan. Mereka kemudian menikah dan hidup bahagia. Gadis itu pun akhirnya melahirkan seorang anak laki-laki yang mereka beri nama Samosir.  Setelah menikah, Toba dan istrinya hidup bahagia dan memiliki seorang anak laki-laki yang bernama Samosir. Namun, Samosir sering kali nakal dan suka makan banyak. Suatu hari, ibunya menyuruh Samosir mengantarkan makanan kepada Toba yang sedang bekerja di ladang. Apa yang terjadi selanjutnya?",
         image: "assets/scene3.webp",
         choices: {
           A: {
-            text: "Accept the job",
+            text: "Samosir habsikan makanan.",
             next: 4
           },
           B: {
-            text: "Reject the job",
-            next: "end3b"
+            text: "Samosir tersesat di jalan.",
+            next: "end3"
           }
         }
       },
       4: {
-        text: "Next, Malin settled in the village and worked diligently and tirelessly. After several years in the foreign land, Malin became very wealthy and had married a woman. The news of Malin Kundang's wealth and marriage eventually reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by his crew and bodyguards. When Malin disembarked from the ship, his mother stood nearby and was certain it was her son because she recognized the scar on his arm. She immediately embraced Malin, as it had been a long time since they had seen each other. However, when Malin met his mother...",
+        text: "Ketika Toba mengetahui bahwa Samosir memakan semua makanannya, ia merasa sangat marah. Amarah yang tidak terkendali membuatnya melanggar janji yang sudah ia buat kepada istrinya. Dalam kemarahannya, apa yang Toba katakan kepada Samosir?  ",
         image: "assets/scene4.webp",
         choices: {
           A: {
-            text: "Malin pushes his mother",
+            text: "Toba berteriak, “Dasar anak ikan!”",
             next: 5
-          },
-          B: {
-            text: "Malin hugs his mother tightly",
-            next: "end4b"
+        },
+        B: {
+            text: "Toba berkata, “Kamu anak durhaka!”",
+            next: "end4"
           }
         }
       },
       5: {
-        text: "Malin pushed his mother away from him. In fact, he shoved her, insulted her, and refused to acknowledge that she was his mother. Malin's mother was so sad and angry. Therefore, she immediately raised her hands and prayed, 'Oh God, if he is truly my son, I curse him to become a stone.' When cursed by his mother, Malin was startled and pondered deeply about what would happen next if he were cursed by his mother.",
+        text: "Dengan kata-kata itu, Toba tanpa sadar mengungkapkan rahasia tentang asal-usul istrinya. Istrinya, yang mendengar hal itu, merasa sangat kecewa karena Toba telah melanggar sumpahnya. Setelah Toba mengungkapkan rahasia tentang asal-usul istrinya, apa yang dilakukan istrinya?",
         image: "assets/scene5.webp",
         choices: {
           A: {
-            text: "Malin did not respond to his mother's curse.",
-            next: "end5a"
+            text: "strinya sangat kecewa dan memutuskan untuk kembali ke dunia asalnya, meninggalkan Toba dan Samosir.",
+            next: "end5"
           },
           B: {
-            text: "Malin apologized to his mother",
-            next: "end5b"
+            text: "Ia tetap tinggal bersama Toba, tetapi meminta Toba untuk tidak pernah menyebutkan hal itu lagi.",
+            next: "end6"
           }
         }
       }
@@ -161,39 +161,28 @@
     // Define the endings
     const endings = {
       end1: {
-        text: "Malin Kundang's father returned home and postponed his departure to a foreign land until the weather improved. Malin Kundang's father went to a foreign land a year ago and returned happily.",
+        text: "Toba merasa puas dengan hasil tangkapannya dan segera memasak ikan tersebut. Namun, setelah itu, hujan deras tiba-tiba turun tanpa henti. Seluruh desa mulai terendam air, dan Toba baru menyadari bahwa ikan itu mungkin membawa kutukan, tetapi semuanya sudah terlambat.",
         image: "assets/end1.webp",
-        type: "end"
       },
       end2: {
-        text: "When Malin Kundang fought some pirates, they caught him and kept him as a prisoner. He tried to run away, but the pirates caught him again. The pirates' boss made Malin Kundang meet him, and the guards wanted to throw Malin Kundang into the sea. The boss said yes, so Malin Kundang was thrown into the ocean and died.",
+        text: "Toba setuju dengan syarat tersebut. Namun, seiring berjalannya waktu, Toba kesulitan memberikan makanan yang diminta istrinya. Ketika ia gagal memenuhi janjinya, istrinya merasa kecewa dan tiba-tiba menghilang. Tak lama setelah itu, desa mereka dilanda banjir yang besar.",
         image: "assets/end2.webp",
-        type: "end"
       },
-      end3a: {
-        text: " Malin settled in the village and worked diligently and persistently. Malin eventually became very wealthy and married a young woman. News of Malin Kundang's wealth and marriage also reached his mother. Malin Kundang's mother felt grateful that her son had succeeded. One day, Malin and his wife sailed to his village on a large and beautiful ship, accompanied by crew members and guards. As Malin disembarked from the ship, his mother stood close by and was certain that it was her son because she saw a scar on his arm. She immediately hugged Malin, as it had been so long since she last saw him.",
+      end3: {
+        text: " Samosir tidak berhasil menemukan jalan ke ladang dan kembali pulang dengan tangan kosong. Saat Toba mengetahui hal ini, ia tetap marah, tapi tidak mengatakan sesuatu yang buruk. Namun, cuaca di desa mulai berubah dan hujan turun deras, mengancam keselamatan keluarga mereka.",
         image: "assets/end3a.webp",
-        type: "end"
       },
-      end3b: {
-        text: "And so Malin returned to the village and met his mother. He told her that the reason he came back was because he was worried he might encounter pirates again on the island where he had stopped",
-        image: "assets/end3b.jpeg",
-        type: "end"
-      },
-      end4b: {
-        text: "Malin hugged his mother tightly, and in the end, Malin and his family lived happily in their village.",
+      end4: {
+        text: "Toba memarahi Samosir dengan keras, tetapi tidak melanggar sumpahnya. Meski begitu, setelah kejadian itu, cuaca di desa menjadi semakin buruk, dengan hujan deras yang turun selama berhari-hari. Mereka mulai merasa desa mereka terkena kutukan.",
         image: "assets/end4b.webp",
-        type: "end"
       },
-      end5a: {
-        text: "Not long after, the wind roared loudly, and a violent storm erupted. Malin felt something was wrong with his body, and soon after, his body gradually stiffened and turned into a rock.",
+      end5: {
+        text: "Istrinya merasa bahwa Toba telah melanggar janji suci mereka. Dalam kesedihan dan kekecewaannya, ia memutuskan untuk meninggalkan Toba dan kembali ke dunia asalnya. Sebelum pergi, ia meminta Samosir untuk naik ke tempat yang tinggi karena akan ada banjir besar yang melanda desa mereka.  ",
         image: "assets/end5a.webp",
-        type: "end"
       },
-      end5b: {
-        text: "Malin Kundang was then forgiven by his mother, and in the end, Malin and his family lived happily ever after.",
+      end6: {
+        text: "Istrinya memaafkan Toba, tetapi cuaca buruk tetap datang. Hujan deras turun terus-menerus, menyebabkan desa mereka mulai tenggelam. Meskipun mereka tetap bersama, mereka tidak bisa melawan kutukan yang telah melanda tanah tempat mereka tinggal.",
         image: "assets/end5b.webp",
-        type: "end"
       }
     };
 
@@ -249,7 +238,7 @@
         choiceB.textContent = story[state].choices.B.text;
 
         // Update stage
-        stage.textContent = `${localStorage.getItem("selectedScene") || 1} / 5`;
+        stage.textContent = `${localStorage.getItem("selectedDTScene") || 1} / 5`;
       } else if (endings[state]) {
         // Update story text and image for endings
         storyText.innerHTML = "";
@@ -269,10 +258,10 @@
         choiceB.classList.remove("bg-[#d9c6a6]");
         choiceB.classList.add("bg-red-400");
 
-        localStorage.setItem("selectedScene", 1)
+        localStorage.setItem("selectedDTScene", 1)
         // Add new event listeners
         choiceA.addEventListener("click", () => {
-          localStorage.setItem("selectedScene", 1)
+          localStorage.setItem("selectedDTScene", 1)
           location.reload();
         });
 
@@ -288,11 +277,11 @@
         const next = story[currentStage].choices.A.next;
         if (typeof next === 'number') {
           currentStage = next;
-          localStorage.setItem("selectedScene", currentStage);
+          localStorage.setItem("selectedDTScene", currentStage);
           updateStory(next);
         } else {
           currentStage = next;
-          localStorage.setItem("selectedScene", currentStage);
+          localStorage.setItem("selectedDTScene", currentStage);
           updateStory(next);
         }
       }
@@ -304,11 +293,11 @@
         const next = story[currentStage].choices.B.next;
         if (typeof next === 'number') {
           currentStage = next;
-          localStorage.setItem("selectedScene", currentStage);
+          localStorage.setItem("selectedDTScene", currentStage);
           updateStory(next);
         } else {
           currentStage = next;
-          localStorage.setItem("selectedScene", currentStage);
+          localStorage.setItem("selectedDTScene", currentStage);
           updateStory(next);
         }
       }
@@ -316,13 +305,13 @@
 
     refresh.addEventListener("click", function () {
       currentStage = 1;
-      localStorage.setItem("selectedScene", 1);
+      localStorage.setItem("selectedDTScene", 1);
       clearTimeout(typingTimeout);
       updateStory(currentStage);
     });
 
     // Initialize the story
-    updateStory(localStorage.getItem("selectedScene") || 1);
+    updateStory(localStorage.getItem("selectedDTScene") || 1);
   </script>
 
 </body>

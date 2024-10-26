@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timun Mas</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mon: ['Montserrat']
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <nav class="flex py-6 justify-around h-7 items-center bg-[#2f2f2f] ">
+        <div class="grow ml-3 flex items-center w-4">
+            <a href="index.html" class=""><img src="assets/logo.png" class="w-14" alt="logo"></a>
+            <h1 class="text-white ml-3 w-3 sm:w-max text-sm">Timun Mas</h1>
+        </div>
+        <h1 class="grow flex w-fit text-white mr-5" id="stage"></h1>
+        <p id="refresh">
+            <i class="h-4 w-4 text-white mr-5 cursor-pointer" id="searchIcon" data-feather="refresh-ccw"></i>
+        </p>
+    </nav>
+
+    <main class="bg-[#FFFDE7] p-5 flex-1">
+        <img src="" id="illustration" class="w-80 sm:w-[400px] sm:h-[300px] object-cover mx-auto mb-5 object-top"
+            alt="Illustration">
+        <div class="flex flex-col items-center ">
+            <p id="story-text" class="text-justify sm:text-lg border rounded-lg p-5 sm:w-[400px] lg:w-[80%]">
+            </p>
+            <p id="skip" class="mt-2 underline cursor-pointer text-slate-500 w-min">Skip</p>
+        </div>
+
+        <div class="mx-auto w-[270px] sm:w-72 mt-6 flex justify-evenly">
+            <button id="choiceCont"
+                class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center">Continue</button>
+            <button id="choiceA"
+                class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center"></button>
+            <button id="choiceB"
+                class="bg-[#d9c6a6] p-3 rounded text-[12px] sm:text-sm font-semibold w-32 h-20 hover:animate-pulse text-center"></button>
+        </div>
+    </main>
+
+
+    <footer class="bg-[#d39747] py-4 flex flex-col items-center">
+        <a href="index.html"><img src="assets/dark-logo.png" alt="WIIF LOGO" class="h-14 sm:h-20 w-min"></a>
+        <ul class="flex w-[70%] lg:w-[40%] justify-around items-center font-semibold mt-5 mb-2">
+            <li class="hover:text-slate-600 transition-colors text-sm "><a href="index.html">Home</a></li>
+            <li class="hover:text-slate-600 transition-colors text-sm "><a href="about.html">About</a></li>
+            <li class="hover:text-slate-600 transition-colors text-sm "><a href="help.html">Help</a></li>
+        </ul>
+    </footer>
+    <h1 class="bg-[#BA7E2D] text-sm text-slate-950 text-center p-2">Copyright © 2024 WIIF</h1>
+
+    <script>
+        feather.replace();
+        const storyText = document.getElementById("story-text");
+        const choiceA = document.getElementById("choiceA");
+        const choiceB = document.getElementById("choiceB");
+        const stage = document.getElementById("stage");
+        const illustration = document.getElementById("illustration");
+        const skipButton = document.getElementById("skip");
+        const choiceCont = document.getElementById("choiceCont");
+        const speed = 40;
+        const refresh = document.getElementById("refresh");
+
+        let currentStage = localStorage.getItem("selectedTMScene") || 1;
+        let typingTimeout; // To keep track of the current typing timeout
+        let skipClicked = false;
+
+        // Define the story flow using a state machine approach
+        const story = {
+            1: {
+                text: "Di sebuah desa kecil di Jawa Tengah, Mbok Srini menjalani hari-harinya dalam sunyi. Hidup seorang diri sejak suaminya wafat bertahun-tahun lalu, ia tak punya anak untuk menemani. Setiap pagi ia menapaki jalan setapak menuju hutan, mengumpulkan ranting-ranting untuk dijual sebagai kayu bakar. Meski sudah akrab dengan kesepian, ada kehampaan yang sesekali menghantui Mbok Srini, menyisakan kekosongan dalam hatinya.",
+                image: "",
+                type: "continue",
+                choices: {
+                    A: {
+                        text: "continue",
+                        next: 2
+                    },
+                    B: {
+                        text: "continue",
+                        next: 2
+                    }
+                }
+            },
+            2: {
+                text: "Sore itu, saat matahari mulai merendah dan bayang-bayang pepohonan memanjang, Mbok Srini mengumpulkan kayu terakhirnya. Udara hutan terasa berbeda, seperti tertahan, hening… terlalu hening. Tak ada suara burung, tak ada gemerisik serangga yang biasanya meramaikan hutan. Mbok Srini merasakan bulu kuduknya berdiri. Di kejauhan, di antara pohon-pohon besar yang mulai diliputi bayangan gelap, tampak sosok bayangan yang sangat besar.  <br><br>Ia memicingkan mata, mencoba memastikan penglihatannya. Semakin lama, sosok itu semakin jelas. Detak jantungnya bertalu-talu, dan tubuhnya gemetar hebat.Sosok itu bergerak mendekat, dan Mbok Srini kini dapat melihatnya dengan jelas—sebuah makhluk tinggi besar dengan tubuh kekar, mata merah menyala, menatapnya tajam dari balik pepohonan. Ia terdiam kaku, bahkan napasnya terasa berat. Keringat dingin mengalir di pelipisnya, sementara ia hanya bisa menatap makhluk itu dengan ketakutan.",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Tetap Tenang",
+                        next: 3
+                    },
+                    B: {
+                        text: "Lari!!!",
+                        next: 4
+                    }
+                }
+            },
+            3: {
+                text: "dengan tenang, bu srini bu srini memejamkan mata, dan menarik nafas, dan berdoa kepada tuhan agar dijauhkan dari segala mara bahaya, tiba tiba hening dan saat membuka mat, raksasa itu hilang, bu sri pulang kerumahnya. di malam hari bu sri  memimpikan seorang raksasa yang menyuruhnya pergi mengambil sebuah bungkusan di bawah pohon besar di hutan tempat biasanya ia mencari kayu bakar. Saat ia terbangun di pagi hari, tentu saja Mbok Srini merasa kebingungan dengan arti mimpi itu. Dengan berbagai keraguan dan rasa penasaran di benaknya.",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Puaskan Rasa Penasaran",
+                        next: 7
+                    },
+                    B: {
+                        text: "Tetap Di Rumah",
+                        next: "end1b"
+                    }
+                }
+            },
+            4: {
+                text: "Mbok Srini berlari terhuyung-huyung, panik menyelimuti tubuh tuanya seakan-akan hidupnya akan berakhir saat itu juga. Ia melangkah tanpa arah, hanya tahu bahwa ia harus menjauh sejauh mungkin dari raksasa yang memburunya. Nafasnya tersengal, kakinya bergetar, tapi tekad untuk selamat membuatnya terus berlari. Namun, takdir seakan bersekongkol dengan raksasa itu. <br><br> Dalam pelariannya, kakinya tersangkut akar pohon yang mencuat dari dalam tanah. Tubuhnya terhuyung, dan sebelum sempat ia menyadari apa yang terjadi, kepalanya menghantam keras pada akar tersebut. Rasa sakit menjalar, dan dunia di sekitarnya perlahan memudar. Dalam bayangan yang semakin buram, ia melihat sosok raksasa itu berjalan perlahan, diikuti seorang anak kecil yang samar-samar menyembul dari balik tubuhnya yang besar. Pandangannya semakin kabur, dan akhirnya, segalanya menjadi gelap.",
+                image: "assets/scene4.webp",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Bertahan",
+                        next: 5
+                    },
+                    B: {
+                        text: "Pasrah",
+                        next: 5
+                    }
+                }
+            },
+            5: {
+                text: "Mbok Srini mencoba bertahan, berusaha menjaga kesadarannya di tengah rasa takut yang melanda, tetapi semuanya sudah terlambat. Tubuhnya terangkat dalam gendongan sang raksasa, seakan dunia di sekitarnya memudar menjadi kabur. Rasa dingin menjalar di tubuhnya, dan akhirnya, ia tak sanggup lagi menahan beban kepalanya. Segalanya menjadi gelap. Saat membuka mata, Mbok Srini mendapati dirinya terbaring di atas altar batu di dalam gua yang remang-remang. Ia dikelilingi oleh bunga-bunga yang tertata rapi dalam warna merah, kuning, dan putih—mencolok di tengah kegelapan pekat di sekitarnya. Udara di gua dipenuhi aroma bunga yang kuat dan asing, menciptakan atmosfer misterius yang mendebarkan. Sejenak, Mbok Srini merasa seperti berada dalam sebuah upacara besar",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "tetap diam",
+                        next: 6
+                    },
+                    B: {
+                        text: "Pergi",
+                        next: "end2b"
+                    }
+                }
+            },
+            6: {
+                text: "Suara langkah berat menggema dari sudut gua yang lebih dalam, mengguncang altar batu di mana Mbok Srini terbaring. Jantungnya berdebar hebat, dan ia berusaha bangkit meski tubuhnya masih terasa lemas. Dari kegelapan itu, perlahan muncul sosok yang tak mungkin ia lupakan—raksasa yang tadi membuatnya nyaris kehilangan nyawa. Namun, ada yang berbeda kali ini.Raksasa itu berjalan dengan pakaian rapi, mengenakan jubah tebal berwarna gelap yang terlihat jauh lebih bersih dan terawat daripada yang ia bayangkan. Di tangan besarnya, ia membawa sebuah rangkaian bunga besar, campuran bunga liar yang indah, dirangkai dalam tatanan yang cukup rapi, bahkan menyisakan aroma harum yang memenuhi udara.Senyum lebar terulas di wajah raksasa itu saat ia mendekat, matanya yang besar berbinar seakan tengah memandang sesuatu yang berharga. Dengan penuh kehati-hatian, ia melangkah ke altar, menundukkan tubuh besarnya dan mengulurkan bunga itu ke arah Mbok Srini. “Mbok Srini,” suara raksasa itu berat namun lembut, dengan nada yang tidak pernah ia sangka keluar dari makhluk sebesar ini, “aku datang… untuk melamarmu.”",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Menerima Ajakan",
+                        next: "end1a"
+                    },
+                    B: {
+                        text: "Menolak",
+                        next: "end3b"
+                    },
+                }
+            },
+            7: {
+                text: "Mbok Srini terus melangkah ke dalam hutan, mengikuti bisikan hatinya yang membimbingnya. Setiap langkahnya dipenuhi harapan, terutama setelah mimpi aneh yang menghantuinya semalam. Ia merasakan sebuah panggilan yang kuat, seperti suara lembut yang mengisyaratkan agar ia segera menemukan apa yang dicari.Sesampainya di hutan, ia mengamati sekelilingnya, matanya menyisir setiap sudut, hingga ia akhirnya berdiri di bawah pohon besar yang menjulang tinggi. Di bawah naungan rimbunnya, ia menggali tanah dengan tangan yang keriput. Di sana, ia berharap menemukan bungkusan yang mungkin berisi bayi—sosok yang selama ini ia idamkan untuk menemani hidupnya yang sepi.<br><br> Namun, saat tangannya menyentuh benda kecil, harapannya hancur seketika. Bungkusan itu ternyata hanyalah sebutir biji timun, keras dan tidak berarti. Hatinya terasa berat, kecewa menyelimuti setiap sudut jiwanya. “Hanya ini yang bisa kau berikan padaku?” gumamnya pelan, suara itu nyaris tenggelam oleh gemerisik dedaunan. Tiba-tiba, tawa yang menggelegar memenuhi udara, mengusik ketenangan hutan. <br><br> Mbok Srini menengadah, dan di hadapannya berdiri sosok raksasa yang semalam menghampirinya, wajahnya dipenuhi tawa. “Apa maksudmu memberikanku sebutir biji timun?” tanya Mbok Srini dengan nada tinggi, berusaha menahan amarah yang berkecamuk di dalam dada. Raksasa itu, meski besar dan menakutkan, tampak ceria, seolah tidak menghiraukan kekecewaannya. “Biji timun? Ah, kau tidak mengerti,” ia berkata, senyum lebar menghiasi wajahnya yang besar. “Biji ini adalah awal dari segalanya!” Raksasa itu melangkah mendekat, dan Mbok Srini merasakan campuran antara ketakutan dan rasa ingin tahu.",
+                image: "",
+                // type: "chose",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Membuang biji",
+                        next: "end2a"
+                    },
+                    B: {
+                        text: "penasaran",
+                        next: "8"
+                    },
+                }
+            },
+            8: {
+                text: "“Tenang, jangan takut. Aku tidak akan memakanmu, wanita tua!” jawab raksasa, suaranya dalam dan menenangkan. Ia mendekat, dan Mbok Srini merasakan campuran antara harapan dan ketakutan. “Tapi aku punya permintaan,” lanjut raksasa sambil mengulurkan biji timun yang ia berikan sebelumnya. “Tanam biji ini, dan kau akan mendapatkan seorang anak perempuan. Namun, ketika dia dewasa, kau harus memberikannya kembali padaku, karena aku akan memakannya. ”Jantung Mbok Srini berdegup kencang. Di satu sisi, ia ingin memiliki seorang anak, tetapi di sisi lain, ia tak bisa membayangkan harus mengorbankan anak yang telah dibesarkannya. “Tapi… bagaimana mungkin aku bisa memberikannya kembali?” tanyanya, suaranya bergetar. Raksasa itu tersenyum lebar, menunjukkan gigi tajamnya. “Itu adalah syaratnya. Pilihan ada di tanganmu.” Dalam keheningan yang mencekam, Mbok Srini merasa terjebak antara harapan dan ketakutan, sebuah dilema yang menghantui hidupnya.",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Menyetujui Tawaran",
+                        next: 9
+                    },
+                    B: {
+                        text: "Menolak Tawaran",
+                        next: "end4b"
+                    },
+                }
+            },
+            9: {
+                text: "Karena Mbok Srini sangat menginginkan seorang anak, ia menyetujui perjanjian itu.Saat kembali ke rumah, Mbok Srini menanam biji timun itu ke ladang rumahnya. Mbok Srini merawat biji timun itu dengan sangat baik tiap harinya. Dua bulan kemudian, tanaman itu pun mulai berubah, dan tanaman timun itu hanya berbuah satu. Semakin hari, buah timun spesial ini menjadi semakin besar, lebih besar dari buah timun pada umumnya. Warnanya pun menunjukkan warna kuning keemasan, terlihat cantik Saat buah timun itu sudah sangat besar, Mbok Srini memetiknya dan saat terbelah, ada seorang bayi perempuan yang sangat cantik. Mbok Srini sangat bahagia mendengar suara tangisan bayi itu. Ia pun memberikan nama Timun Mas. tetapi dia ingat bahwa saat timun mas dewasa dia harus mengembalikan ke raksasa buto ijo. ",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "lupakan persetujuan",
+                        next: 10
+                    },
+                    B: {
+                        text: "memenuhi persetujuan",
+                        next: "end5b"
+                    },
+                }
+            },
+            10: {
+                text: "Mbok Srini merasa sangat senang sehingga ia lupa bahwa ia pernah membuat janji pada raksasa ia akan memberikan bayi ini padanya suatu hari nanti. Mbok Srini membesarkan Timun Mas dengan kasih sayang dan kesabaran. Timun Mas tumbuh menjadi seorag perempuan yang cantik, baik, serta sangat cerdas. Pada suatu malam, Mbok Srini kembali bermimpi didatangi raksasa yang memberikan pesan bahwa dalam waktu seminggu, ia akan menjemput Timun Mas. Sejak saat itu, Mbok Srini sering termenung sedih sendirian. Ia terus memikirkan bahwa ia akan berpisah dengan anaknya yang sangat ia sayangi. Terkadang, air mata jatuh ke pipinya tanpa ia sadari. Ternyata, Timun Mas sering memperhatikan ibunya yang sedih ini,lalu ia pun bertanya pada Mbok Srini, “Ibu, kenapa akhir-akhir ini Ibu sering sekali menangis?”",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "Ceritakan",
+                        next: 11
+                    },
+                    B: {
+                        text: "Diam saja",
+                        next: "end6b"
+                    },
+                }
+            },
+            11: {
+                text: "Mbok Srini pun menceritakan kisah asli kelahiran Timun Mas. Mbok Srini juga menceritakan bagian bahwa ia harus mengembalikan Timun Mas ke seorang raksasa dan beberapa malam sebelumnya raksasa itu menghampiri ia kembali ke dalam mimpi. Timun Mas pun merasa sedih dan ia tidak ingin Mbok Srini mengembalikannya ke sang raksasa. Akhirnya mereka berdua berpikir dan mencari cara agar Timun Mas bisa bebas dari sang raksasa. Di hari Timun Mas harus dikembalikan, tiba-tiba Mbok Srini terpikir sebuah cara. Mbok Srini meminta Timun Mas berpura-pura sakit agar sang raksasa tidak ingin memakannya. Beruntung, car aini cukup berhasil untuk mengulur waktu, sang raksasa akan datang kembali saat Timun Mas sudah sembuh. Sebelum rakasasa itu datang kembali, Mbok Srini memikirkan bagaimana cara agar anaknya bisa terbebaskan. ",
+                type: "chose",
+                image: "",
+                choices: {
+                    A: {
+                        text: "Minta Bantuan Dukun",
+                        next: 12
+                    },
+                    B: {
+                        text: "Minta Bantuan Kerajaan",
+                        next: "end7b"
+                    },
+                }
+            },
+            12: {
+                text: "Paginya, Mbok Srini bertemu seorang pertama di gunung, ia adalah teman suaminya yang sudah meninggal. Sesampainya di sana, Mbok Srini langsung menceritakan soal kondisinya dan ia ingin mengusir raksasa itu. Sang pertapa itu memberikan Mbok Srini empat bungkusan kecil. Katanya, bungkusan-bungkusan ini berisi biji timun, jarum, garam, dan terasi. Sang pertapa menyuruhnya memberikan empat bungkusan ini pada anaknya dan jika sang raksasa mengejarnya, sebarkan isi bungkusan-bungkusan ini. Setelah itu, Mbok Srini pun pulang dengan perasaan sedikit lega, setidaknya ia sekarang sudah memiliki rencana. Beberapa hari kemudian, raksasa ini datang kembali untuk menjemput Timun Mas.",
+                image: "",
+                type: "chose",
+                choices: {
+                    A: {
+                        text: "suruh timun mas lari",
+                        next: 13
+                    },
+                    B: {
+                        text: "suruh timun mas lempar keempat bungkusan",
+                        next: "end8b"
+                    },
+                }
+            },
+            13: {
+                text: "Timun Mas tiba-tiba berlari sekencang-kencangnya, dengan raksasa besar menguntitnya di belakang, langkah-langkahnya mengguncang bumi. Napasnya tersengal, tapi tanpa ragu, Timun Mas melemparkan biji dari bungkusan pertama yang diberikan ibunya. Seketika, hutan di sekelilingnya berubah menjadi ladang timun yang menjalar liar, melilit seluruh tubuh raksasa. Namun, dengan kekuatan besar, raksasa itu meronta dan berhasil melepaskan diri, terus mengejar Timun Mas yang semakin cemas.",
+                image: "",
+                type: "continue",
+                choices: {
+                    A: {
+                        text: "continue",
+                        next: 14
+                    },
+                    B: {
+                        text: "continue",
+                        next: 14
+                    },
+                }
+            },
+            14: {
+                text: "Tanpa kehilangan waktu, Timun Mas menebarkan isi bungkusan kedua—jarum-jarum kecil yang jatuh dan berubah menjadi deretan bambu tinggi dan tajam, menusuk tubuh raksasa itu hingga berdarah. Meski terhuyung, raksasa itu melanjutkan pengejarannya dengan tawa yang menggema.",
+                image: "",
+                type: "continue",
+                choices: {
+                    A: {
+                        text: "continue",
+                        next: 15
+                    },
+                    B: {
+                        text: "continue",
+                        next: 15
+                    },
+                }
+            },
+            15: {
+                text: "Timun Mas tak punya banyak pilihan, lalu membuka bungkusan ketiga dan menaburkan garam. Seketika, jalan yang dilewatinya berubah menjadi lautan yang dalam dan dingin. Namun, raksasa itu berenang dengan kecepatan yang mengejutkan, matanya menyala penuh dendam.",
+                image: "",
+                type: "continue",
+                choices: {
+                    A: {
+                        text: "Continue",
+                        next: "end"
+                    },
+                    B: {
+                        text: "continue",
+                        next: "end"
+                    },
+                }
+            },
+        };
+
+        const endings = {
+            end1b: {
+                text: "Akhirnya, rasa takutnya lebih kuat daripada keingintahuannya. Mbok Srini memutuskan takkan mengikuti petunjuk mimpi itu. Sebagai gantinya, ia meninggalkan desa untuk mencari kehidupan baru di kota, jauh dari bayangan mimpi dan kehadiran raksasa yang mengusik hatinya.",
+                image: "",
+            },
+            end2b: {
+                text: "Mbok Srini mendengar suara langkah berat raksasa mendekat. Dalam ketakutan, ia berusaha melarikan diri, menyeret tubuhnya dari altar dan bersembunyi di balik bebatuan. Dengan napas tercekat, ia mengintip raksasa itu yang muncul dari dalam gua, mengenakan pakaian aneh yang tak pantas untuk sosok sebesarnya.<br><br> Meski penasaran, ia tahu keselamatannya lebih penting. Perlahan, ia menjauh dari gua, tetapi mendengar suara tangisan yang dalam dan menyayat dari dalam. Suara itu, tak terduga untuk makhluk sekuat raksasa, membuatnya ragu sejenak, namun ia melanjutkan pelarian, meninggalkan hutan dan gua itu jauh di belakang. Setelah kejadian tersebut, Mbok Srini tak pernah terlihat lagi di desa. Orang-orang mulai berbisik bahwa ia mungkin pergi jauh, menyimpan cerita pertemuan aneh dengan raksasa yang mungkin memiliki rasa yang tak terduga untuknya.",
+                image: "",
+            },
+            end1a: {
+                text: "Mbok Srini tertegun sejenak, mulutnya ternganga mendengar lamaran raksasa itu. Semua ketakutan yang sempat menghantuinya seakan sirna seketika. Dia tertawa, melepaskan ketegangan yang selama ini menyelimuti hatinya. “Jadi, kau bukan hanya monster menakutkan,” ujarnya, “tapi seorang pelamar yang ingin menikahiku?” Raksasa itu tersenyum, menundukkan kepalanya, meski ragu. “Aku mengerti jika kau butuh waktu untuk berpikir,” katanya lembut. Setelah merenung sejenak, Mbok Srini memutuskan untuk menerima ajakan itu. “Baiklah, aku akan menikah denganmu,” ujarnya dengan mantap. Raksasa melompat kegirangan, mengangkat Mbok Srini dengan penuh sukacita. Mereka merayakan pernikahan sederhana di tengah hutan, dikelilingi bunga-bunga indah dan anak kecil yang ceria—anak raksasa itu. Sejak itu, Mbok Srini menjalani hidup bahagia di hutan, menjalin ikatan kuat dengan raksasa dan anak kecil tersebut. Dalam dunia baru ini, ia menemukan makna sejati dari kebahagiaan dan persahabatan, jauh dari kesepian yang pernah membelenggu hidupnya.",
+                image: "",
+            },
+            end3b: {
+                text: "Mbok Srini terbelalak, tidak percaya dengan apa yang didengarnya. “T-tidak!” teriaknya, suaranya menggema di dalam gua. “Aku tidak bisa menerima lamaranmu!” Rasa ketakutan dan kemarahan membanjiri hatinya. Raksasa itu mungkin tampak lembut, tetapi ia tetap makhluk yang menakutkan. Senyum raksasa itu perlahan memudar, digantikan oleh kekecewaan yang mendalam. Dalam keputusasaannya, ia menginjakkan kakinya yang besar pada rangkaian bunga yang indah, menghancurkan tatanan yang telah ia buat dengan penuh kasih. Suara kelopak bunga yang remuk menggema di udara, menambah rasa sakit di hati Mbok Srini. Raksasa itu berlutut di pojokan gua, air mata mengalir deras dari matanya yang besar. Melihat itu, Mbok Srini merasa sedikit bersalah, tetapi rasa takut menguasai dirinya. Tanpa berpikir panjang, ia melangkah mundur, kemudian berlari menuju pintu gua, menembus kegelapan. Ia berlari menembus jalan setapak menuju desa, tak pernah menoleh ke belakang. Dalam pelariannya, ia bertekad untuk meninggalkan tempat itu selamanya, tak ingin kembali lagi ke tempat yang penuh dengan ketakutan dan kenangan pahit. Sejak saat itu, Mbok Srini tak pernah terlihat lagi di desa. Penduduk desa mulai bertanya-tanya, merindukan sosoknya yang ramah dan sabar, tetapi tak ada yang tahu ke mana ia pergi.",
+                image: "",
+            },
+            end2a: {
+                text: "Dengan emosi yang memuncak, Mbok Srini tidak bisa menahan rasa kesalnya lebih lama. Ia melempar biji timun itu sekuat tenaga, dan benda kecil itu terbang menjauh, menghantam tanah dengan suara kecil yang tidak berarti. “Aku sudah cukup!” teriaknya, suaranya penuh amarah. “Aku tidak ingin terjebak dalam permainan aneh ini!” Raksasa itu terdiam sejenak, terkejut oleh tindakan Mbok Srini, tetapi raut wajahnya menunjukkan kebingungan, bukan kemarahan. Merasa tidak ingin lagi terjebak dalam situasi yang menakutkan itu, Mbok Srini berbalik dan meninggalkan raksasa serta hutan di belakangnya. Setibanya di desa, hatinya terasa lebih berat. Kesepian menyelimuti setiap sudut rumahnya yang sepi. Tanpa ingin mencari teman atau harapan yang tidak pasti, ia memutuskan untuk mengubah hidupnya. Mbok Srini mulai menjajakan kue-kue tradisional yang ia buat sendiri. Setiap pagi, ia mengisi keranjang dengan kue-kue cantik beraroma menggoda, berkeliling desa untuk menjualnya. Kue-kue itu membawa senyuman bagi para penduduk desa, mengingatkan mereka pada kebaikan dan keramahan Mbok Srini. Meskipun hidup sebatang kara, ia menemukan kepuasan dalam profesi barunya. Kini, ia menjalani hari-harinya dengan semangat baru, mengubah kesedihan menjadi kekuatan, meskipun bayangan raksasa dan biji timun itu masih terukir dalam ingatannya.",
+                image: "",
+            },
+            end4b: {
+                text: "Mbok Srini dengan tegas menolak tawaran raksasa itu, mengejutkan makhluk besar di depannya. “Aku tidak bisa memberikan anakku kembali,” katanya. Raksasa itu tertegun sejenak, lalu mengulurkan biji lain, “Hm, kalau begitu, terimalah biji semangka ini.” Tanpa ragu, Mbok Srini menerima biji semangka itu dan pulang ke rumah. Ia merawat biji itu dengan penuh kasih, menyiraminya setiap hari. Setelah berbulan-bulan, semangka itu tumbuh subur, tetapi ketika dipetik, ternyata hanya semangka biasa. Tanpa membuang waktu, Mbok Srini langsung menyantap semangka manis itu, merasakan kebahagiaan sederhana. Ia pun menanam biji-biji lainnya, dan semangka hasil panennya melimpah. Dari situ, Mbok Srini memutuskan untuk menjadi pengusaha semangka. Dengan kerja keras dan ketekunan, ia berhasil membangun usaha yang sukses, mengubah hidupnya dan menemukan kebahagiaan baru dalam setiap buah yang dihasilkannya.",
+                image: "",
+            },
+            end5b: {
+                text: "Mbok Srini merawat Timun Mas dengan sepenuh hati, menyayanginya seperti anak kandung. Namun, suatu malam, ia merasa harus jujur. Dengan suara bergetar, Mbok Srini menceritakan asal-usul Timun Mas dan janji yang mengikat mereka pada raksasa itu. Timun Mas mendengarkan dalam diam, dan keduanya larut dalam kesedihan mendalam. Meski berat, mereka sepakat untuk menepati janji. Waktu berlalu, dan hari itu pun tiba—hari di mana Timun Mas harus diserahkan pada raksasa. Mbok Srini, kini kehilangan seseorang yang paling ia sayangi, kembali menjalani hidupnya dalam kesepian yang tak terelakkan.",
+                image: "",
+            },
+            end6b: {
+                text: "mbok sri diam saja tidak bercertia apaapa, diam seribu bahasa, di hari timun mas harus dikembalikan ke buto ijo, timun mas erkejut akan kehadiran sang raksasa, dan raksasa pun bertanya “mana timun ku??“ dengan suara yang menggelegar, timun pun terkejut dengan apa yang diucapkan oleh raksasa, “wahai raksasa, apa maksudmu timun itu aku??“, raksasa tertawa “hahahaha, iyaa kau tau kamu timun, kamu itu adalah hasli perjanjian mbok sri dan aku, dengan syarat waktu kamu dewasa, beri aku timun“, mbok sri terkejut “j- jadi maksdumu dulu itu timun beneran??“ raksasa kebiingungan “ya iyalahh, emg kamu mikirnya apa?“, timun mas segera memberikan timun kepada sang raksasa, sang raksasa pun kembalii pulang, dan akhinya mereka tidak di teror lagi dengan raksasa",
+                image: "",
+            },
+            end7b: {
+                text: "Menjelang hari perjanjian, Mbok Srini tak sanggup merelakan Timun Mas begitu saja. Setiap akhir minggu, prajurit kerajaan datang berpatroli ke desa-desa, dan kali ini ia memohon bantuan mereka untuk melindungi putrinya dari raksasa Buto Ijo. Para prajurit terkejut mendengar bahwa raksasa itu benar-benar ada, dan segera bersiap dengan persenjataan berat, termasuk meriam besar untuk menghadapinya. Ketika Buto Ijo tiba untuk menjemput Timun Mas, ia tertegun melihat deretan prajurit yang siap menyerang. Didorong rasa takut, ia berbalik untuk kabur, tetapi prajurit kerajaan dengan cekatan mengejarnya.Buto Ijo akhirnya tertangkap setelah pertempuran yang mendebarkan. Kerajaan, yang menyadari kekuatan luar biasa raksasa itu, memutuskan untuk tidak membinasakannya. Sebagai gantinya, mereka menjadikan Buto Ijo budak kerajaan, memanfaatkan tenaganya untuk membangun benteng dan mengangkat beban-beban yang tak sanggup dilakukan manusia biasa. Mbok Srini dan Timun Mas, yang kini bebas dari ancaman, menjalani hidup dengan lega. Meski berbekas kenangan pahit, mereka akhirnya dapat hidup damai di desa, tanpa rasa takut akan kedatangan raksasa lagi.",
+                image: "",
+            },
+            end8b: {
+                text: "Dalam kepanikan, Mbok Srini memohon pada Timun Mas untuk melemparkan semua bungkusan pemberian sang petapa, satu per satu. Dengan tangan gemetar, Timun Mas melempar bungkusan pertama—seketika tumbuhlah hutan timun lebat. Lalu, saat bungkusan kedua dilempar, aroma menyengat dari hutan bambu yang berduri muncul dan menyebar. Diikuti lemparan bungkusan ketiga, tiba-tiba air dari lautan misterius menggenangi desa. Terakhir, saat bungkusan keempat dilempar, lumpur mendidih meledak keluar, mengalir deras menutupi setiap sudut. Desa mereka tenggelam dalam kehancuran yang dahsyat. Tak ada lagi jalan keluar; Timun Mas, raksasa, Mbok Srini, dan seluruh desa lenyap, ditelan oleh lumpur panas yang menyelimuti segalanya tanpa ampun.",
+                image: "",
+            },
+            end: {
+                text: "Dengan sisa harapan terakhir, Timun Mas membuka bungkusan terakhir—segenggam terasi. Dilemparkanlah terasi itu dengan tangan gemetar, berharap ini adalah akhirnya. Dalam sekejap, tanah di sekitarnya berubah menjadi lautan lumpur mendidih, gelap dan pekat. Raksasa yang tengah melaju langsung terseret ke dalam lumpur panas itu, terperangkap, berteriak kesakitan hingga akhirnya tenggelam dan hilang selamanya. Ketika suasana menjadi tenang, Timun Mas tak membuang waktu, berlari pulang untuk bertemu ibunya. Melihat Timun Mas kembali dalam keadaan selamat, Mbok Srini tak kuasa menahan air mata syukur. Dalam pelukan ibunya, Timun Mas menyadari ia kini benar-benar bebas. Sejak hari itu, mereka hidup bersama dalam kebahagiaan yang damai, bebas dari ancaman dan ketakutan.",
+                image: "",
+            },
+        };
+
+        function typeWriter(text, element, callback) {
+            let i = 0;
+            element.innerHTML = ""; // Clear existing text
+            skipButton.style.display = "block"; // Show the skip button
+            choiceA.style.display = "none";
+            choiceB.style.display = "none";
+            choiceCont.style.display = "none";
+            skipClicked = false; // Reset the skip flag
+            inStoryText = text.text;
+
+            function type() {
+                if (i < inStoryText.length && !skipClicked) {
+                    element.innerHTML += inStoryText.charAt(i);
+                    i++;
+                    typingTimeout = setTimeout(type, speed);
+                } else {
+                    if (!skipClicked && callback) callback();
+                    skipButton.style.display = "none"; // Hide the skip button after typing
+                    if (text.type === "continue") {
+                        choiceCont.style.display = "block";
+                    } else {
+                        choiceA.style.display = "block";
+                        choiceB.style.display = "block";
+                    }
+                }
+            }
+
+            type();
+        }
+
+        // Skip Button Event Listener
+        skipButton.addEventListener("click", function () {
+            if (!skipClicked) {
+                skipClicked = true; // Set the skip flag to true
+                clearTimeout(typingTimeout); // Clear the ongoing typing timeout
+                // Determine the current state to fetch full text
+                const currentState = story[currentStage] || endings[currentStage];
+                storyText.innerHTML = currentState.text; // Display full text
+                skipButton.style.display = "none"; // Hide the skip button
+                if (currentState.type === "continue") {
+                    choiceCont.style.display = "block";
+                } else {
+                    choiceA.style.display = "block";
+                    choiceB.style.display = "block";
+                }
+            }
+        });
+        // Function to update the story
+        function updateStory(state) {
+            if (story[state]) {
+                // Clear the story text
+                storyText.innerHTML = "";
+
+                // Typewriter effect for the story text
+                typeWriter(story[state], storyText, 0);
+                illustration.src = story[state].image;
+
+                // Update choices
+                choiceA.textContent = story[state].choices.A.text;
+                choiceB.textContent = story[state].choices.B.text;
+
+                // Update stage
+                stage.textContent = `${localStorage.getItem("selectedTMScene") || 1} / 5`;
+            } else if (endings[state]) {
+                // Update story text and image for endings
+                storyText.innerHTML = "";
+                typeWriter(endings[state], storyText, 0);
+                illustration.src = endings[state].image;
+
+                // Update stage to END
+                stage.textContent = "END";
+
+                // Update buttons for endings
+                choiceA.textContent = "Back to Beginning";
+                choiceB.textContent = "Back to Home";
+
+                // Change button styles
+                choiceA.classList.remove("bg-[#d9c6a6]");
+                choiceA.classList.add("bg-sky-400");
+                choiceB.classList.remove("bg-[#d9c6a6]");
+                choiceB.classList.add("bg-red-400");
+
+                localStorage.setItem("selectedTMScene", 1)
+                // Add new event listeners
+                choiceA.addEventListener("click", () => {
+                    localStorage.setItem("selectedTMScene", 1)
+                    location.reload();
+                });
+
+                choiceB.addEventListener("click", () => {
+                    window.location.href = 'index.html';
+                });
+            }
+        }
+
+        // Event listener for Choice A
+        choiceA.addEventListener("click", function () {
+            if (story[currentStage] && story[currentStage].choices.A.next) {
+                const next = story[currentStage].choices.A.next;
+                if (typeof next === 'number') {
+                    currentStage = next;
+                    localStorage.setItem("selectedTMScene", currentStage);
+                    updateStory(next);
+                } else {
+                    currentStage = next;
+                    localStorage.setItem("selectedTMScene", currentStage);
+                    updateStory(next);
+                }
+            }
+        });
+
+        // Event listener for Choice B
+        choiceB.addEventListener("click", function () {
+            if (story[currentStage] && story[currentStage].choices.B.next) {
+                const next = story[currentStage].choices.B.next;
+                if (typeof next === 'number') {
+                    currentStage = next;
+                    localStorage.setItem("selectedTMScene", currentStage);
+                    updateStory(next);
+                } else {
+                    currentStage = next;
+                    localStorage.setItem("selectedTMScene", currentStage);
+                    updateStory(next);
+                }
+            }
+        });
+
+        choiceCont.addEventListener("click", function () {
+            if (story[currentStage] && story[currentStage].choices.B.next) {
+                const next = story[currentStage].choices.B.next;
+                if (typeof next === 'number') {
+                    currentStage = next;
+                    localStorage.setItem("selectedTMScene", currentStage);
+                    updateStory(next);
+                } else {
+                    currentStage = next;
+                    localStorage.setItem("selectedTMScene", currentStage);
+                    updateStory(next);
+                }
+            }
+        });
+
+        refresh.addEventListener("click", function () {
+            currentStage = 1
+            localStorage.setItem("selectedTMScene", 1);
+            clearTimeout(typingTimeout);
+            updateStory(currentStage);
+        });
+
+        updateStory(localStorage.getItem("selectedTMScene") || 1);
+    </script>
+
+</body>
+
+</html>
