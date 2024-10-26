@@ -238,7 +238,7 @@
         choiceB.textContent = story[state].choices.B.text;
 
         // Update stage
-        stage.textContent = `${localStorage.getItem("selectedDTScene") || 1} / 5`;
+        stage.textContent = `${localStorage.getItem("selectedDTScene") || 1} / 6`;
       } else if (endings[state]) {
         // Update story text and image for endings
         storyText.innerHTML = "";
